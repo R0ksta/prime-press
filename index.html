@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pandey Press - Premium Ironing Service in Melbourne</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='black' stroke-width='1.5'><path stroke-linecap='round' stroke-linejoin='round' d='M4.5 18.75h15v-3a3 3 0 0 0-3-3h-4.5l-4.5-6H6a1.5 1.5 0 0 0-1.5 1.5v10.5Z' /><path stroke-linecap='round' stroke-linejoin='round' d='M13.5 6.75h4.5a1.5 1.5 0 0 1 1.5 1.5v1.5' /></svg>">
+    
+    <title>Professional Ironing Services Blackburn VIC | Pandey Press</title>
+    <meta name="description" content="Premium domestic ironing and garment pressing services in Blackburn, Victoria. Quality, crisp results with convenient drop-off. Book your ironing today!">
+    <meta name="keywords" content="ironing services Blackburn, clothes pressing Melbourne, professional ironing VIC 3130, laundry services Blackburn, domestic ironing">
+    <meta name="author" content="Pandey Press">
+    <link rel="canonical" href="https://pandeypress.com.au/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pandeypress.com.au/">
+    <meta property="og:title" content="Pandey Press | Professional Ironing in Blackburn">
+    <meta property="og:description" content="Crisp, professional ironing services delivered with care. Located in the heart of Blackburn, VIC.">
+    <meta property="og:image" content="https://pandeypress.com.au/assets/og-image.jpg"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Pandey Press | Ironing Services">
+    <meta property="twitter:description" content="Quality domestic ironing services in Blackburn, VIC.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom Font */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        
-        /* Mobile menu toggle classes */
-        #mobile-menu {
-            display: none;
-        }
-        #mobile-menu.active {
-            display: block;
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
-<body class="bg-white text-black antialiased">
+<body class="bg-gray-50 text-black antialiased">
 
-    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center space-x-3">
+                <a href="#" class="flex-shrink-0 flex items-center space-x-3 hover:opacity-80 transition-opacity">
                     <div class="h-10 w-10 bg-black text-white flex items-center justify-center rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 18.75h15v-3a3 3 0 0 0-3-3h-4.5l-4.5-6H6a1.5 1.5 0 0 0-1.5 1.5v10.5Z" />
@@ -33,7 +42,7 @@
                         </svg>
                     </div>
                     <h1 class="text-xl md:text-2xl font-bold tracking-tighter uppercase">Pandey Press</h1>
-                </div>
+                </a>
 
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#how-it-works" class="text-gray-600 hover:text-black font-medium transition-colors">How It Works</a>
@@ -43,220 +52,138 @@
                 </div>
 
                 <div class="md:hidden flex items-center">
-                    <button id="menu-toggle" class="text-black focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    <button id="mobile-menu-button" class="text-black focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-6 space-y-4">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-4">
             <a href="#how-it-works" class="block text-gray-600 font-medium py-2">How It Works</a>
             <a href="#pricing" class="block text-gray-600 font-medium py-2">Price List</a>
             <a href="service-policy.html" class="block text-gray-600 font-medium py-2">Service Policy</a>
-            <a href="#book-now" class="block bg-black text-white px-6 py-3 rounded-md text-center font-semibold">Book Now</a>
+            <a href="#book-now" class="block bg-black text-white text-center px-6 py-3 rounded-md font-bold">Book Now</a>
         </div>
     </nav>
 
-    <section class="bg-black text-white py-20 md:py-32 px-4 sm:px-6 lg:px-8 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 uppercase leading-tight">Hate Ironing?<br>Save Your Time!</h2>
-            <p class="text-lg md:text-2xl text-gray-300 mb-10 font-light leading-relaxed">
-                Let us take the pain away by doing your ironing. Spend more time doing what you enjoy. <br class="hidden md:block">Drop off your garments at our Blackburn location, and we'll press them to perfection.
+    <section class="relative h-[600px] flex items-center justify-center text-white hero-gradient">
+        <div class="text-center px-4 max-w-4xl">
+            <h2 class="text-5xl md:text-7xl font-extrabold uppercase tracking-tighter mb-6">Crisp Perfection</h2>
+            <p class="text-lg md:text-xl mb-10 text-gray-200 font-light tracking-wide max-w-2xl mx-auto">
+                Premium domestic ironing services in Blackburn. We bring the professional finish back to your wardrobe.
             </p>
-            <a href="#book-now" class="inline-block bg-white text-black text-lg font-bold px-10 py-4 rounded-md hover:bg-gray-200 transition-colors w-full md:w-auto">
-                Book Your Drop-Off
-            </a>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#book-now" class="bg-white text-black px-10 py-4 rounded-md font-bold hover:bg-gray-100 transition-colors uppercase tracking-widest text-sm">Book a Service</a>
+                <a href="#pricing" class="border-2 border-white text-white px-10 py-4 rounded-md font-bold hover:bg-white hover:text-black transition-all uppercase tracking-widest text-sm">View Pricing</a>
+            </div>
         </div>
     </section>
 
-    <section class="py-20 bg-white">
+    <section id="how-it-works" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Why Choose Us?</h3>
-                <div class="w-24 h-1 bg-black mx-auto mt-4"></div>
+                <h3 class="text-3xl font-bold uppercase tracking-tight mb-4">How It Works</h3>
+                <div class="h-1 w-20 bg-black mx-auto"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                <div class="px-4">
-                    <h4 class="text-xl font-bold mb-3 uppercase">Quality Guaranteed</h4>
-                    <p class="text-gray-600">Attention to detail ensures every crease is perfect. We care for your garments as if they were our own using advanced industrial irons.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center group">
+                    <div class="h-16 w-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                        <span class="text-2xl font-bold">1</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 uppercase">Book Online</h4>
+                    <p class="text-gray-600">Simple, fast booking process. Choose your items and schedule your drop-off time.</p>
                 </div>
-                <div class="px-4">
-                    <h4 class="text-xl font-bold mb-3 uppercase">Affordable Services</h4>
-                    <p class="text-gray-600">We provide premium quality at highly competitive prices, making professional ironing accessible for your everyday routine.</p>
+                <div class="text-center group">
+                    <div class="h-16 w-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                        <span class="text-2xl font-bold">2</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 uppercase">Drop Off</h4>
+                    <p class="text-gray-600">Bring your clean, dry garments to our Blackburn location at your selected time.</p>
                 </div>
-                <div class="px-4">
-                    <h4 class="text-xl font-bold mb-3 uppercase">Local Convenience</h4>
-                    <p class="text-gray-600">Conveniently located in Blackburn, simply drop off your items and pick them up when they are crisp, fresh, and ready to wear.</p>
+                <div class="text-center group">
+                    <div class="h-16 w-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                        <span class="text-2xl font-bold">3</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 uppercase">Pristine Finish</h4>
+                    <p class="text-gray-600">Collect your items 1-2 days later, perfectly pressed and ready to wear.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works" class="py-20 bg-gray-50 border-t border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-16">
-                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">How Does It Work?</h3>
-                <p class="mt-4 text-gray-600">A simple, stress-free procedure to get your clothes looking sharp in Melbourne.</p>
+                <h3 class="text-3xl font-bold uppercase tracking-tight mb-4">Price List</h3>
+                <p class="text-gray-500">Simple, transparent pricing for all your needs.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 text-center">
-                    <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">1</div>
-                    <h4 class="text-lg font-bold mb-2">Book Online</h4>
-                    <p class="text-gray-600">Fill out our booking form below to let us know you are coming and get a quick price estimate.</p>
+            <div class="bg-white shadow-xl rounded-lg overflow-hidden border border-gray-100">
+                <div class="p-8 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                    <span class="font-bold text-lg uppercase">Standard Items</span>
+                    <span class="text-gray-500 italic">Starting at $2.50</span>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 text-center">
-                    <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">2</div>
-                    <h4 class="text-lg font-bold mb-2">Drop Off</h4>
-                    <p class="text-gray-600">Bring your clean, dry clothes to our location at 14 Ernest Street, Blackburn, VIC 3130.</p>
+                <div class="divide-y divide-gray-100">
+                    <div class="p-6 flex justify-between hover:bg-gray-50 transition-colors">
+                        <span>Adult Shirts / Blouses</span>
+                        <span class="font-bold">$3.50</span>
+                    </div>
+                    <div class="p-6 flex justify-between hover:bg-gray-50 transition-colors">
+                        <span>Trousers / Jeans</span>
+                        <span class="font-bold">$4.00</span>
+                    </div>
+                    <div class="p-6 flex justify-between hover:bg-gray-50 transition-colors">
+                        <span>T-Shirts / Polo Shirts</span>
+                        <span class="font-bold">$2.50</span>
+                    </div>
+                    <div class="p-6 flex justify-between hover:bg-gray-50 transition-colors">
+                        <span>Dresses / Skirts</span>
+                        <span class="font-bold">from $5.00</span>
+                    </div>
+                    <div class="p-6 flex justify-between hover:bg-gray-50 transition-colors">
+                        <span>Bed Linens (Single/Double/King)</span>
+                        <span class="font-bold">from $8.00</span>
+                    </div>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 text-center">
-                    <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">3</div>
-                    <h4 class="text-lg font-bold mb-2">Pick Up</h4>
-                    <p class="text-gray-600">We will notify you the moment your clothes are perfectly ironed, on hangers or folded, ready for collection.</p>
+                <div class="p-6 bg-black text-white text-center">
+                    <p class="text-sm font-medium">Minimum order value: $30.00</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Ironing Price List</h3>
-                <div class="w-24 h-1 bg-black mx-auto mt-4 mb-6"></div>
-                <p class="text-gray-600 text-sm">Prices are per item. Minimum charge for ironing is $30.00. <br><strong>Drop-off and Pick-up only at our Blackburn location.</strong></p>
-            </div>
-
-            <div class="bg-white border border-gray-200 rounded-lg overflow-x-auto">
-                <table class="w-full text-left border-collapse min-w-[500px]">
-                    <thead>
-                        <tr class="bg-black text-white">
-                            <th class="py-4 px-6 font-semibold uppercase text-xs md:text-sm">Garment Type</th>
-                            <th class="py-4 px-6 font-semibold uppercase text-xs md:text-sm text-right">Price (AUD)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Shirts / Blouses</td><td class="py-3 px-6 text-right font-medium">$3.80</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">T-shirts / Polos</td><td class="py-3 px-6 text-right font-medium">$2.50</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Pants</td><td class="py-3 px-6 text-right font-medium">$3.80</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Jeans</td><td class="py-3 px-6 text-right font-medium">$3.30</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Jumper / Pyjama / Tracksuit</td><td class="py-3 px-6 text-right font-medium">$2.90</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Shorts</td><td class="py-3 px-6 text-right font-medium">$2.00 - $2.50</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Skirt</td><td class="py-3 px-6 text-right font-medium">$2.80 - $3.50</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Dress</td><td class="py-3 px-6 text-right font-medium">$4.00 - $6.00</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Jacket</td><td class="py-3 px-6 text-right font-medium">$6.00</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Kids (Sizes 0-4)</td><td class="py-3 px-6 text-right font-medium">$1.80 - $2.20</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Kids (Sizes 5-12)</td><td class="py-3 px-6 text-right font-medium">$2.80 - $3.30</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">School Uniforms</td><td class="py-3 px-6 text-right font-medium">$3.30</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Hanky / T-Towel</td><td class="py-3 px-6 text-right font-medium">$1.00</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Aprons / Pillow Cases</td><td class="py-3 px-6 text-right font-medium">$1.80</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Table Cloths</td><td class="py-3 px-6 text-right font-medium">$4.00 - $7.00</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Bed Sheet (Single to King)</td><td class="py-3 px-6 text-right font-medium">$7.00 - $12.00</td></tr>
-                        <tr class="hover:bg-gray-50"><td class="py-3 px-6">Doona Cover (Single to King)</td><td class="py-3 px-6 text-right font-medium">$10.00 - $14.00</td></tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </section>
 
-    <section id="book-now" class="py-20 bg-black text-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Book Your Service</h3>
-                <p class="mt-4 text-gray-400">Let us know you are coming by filling out the form below.</p>
-                <p class="mt-2 text-red-400 font-semibold text-xs md:text-sm uppercase tracking-wide px-4">Please do not drop off or pick up items until an email confirmation has been provided.</p>
+    <section id="book-now" class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold uppercase tracking-tight mb-4">Request a Booking</h3>
+                <p class="text-gray-600">Fill in the details below and we'll confirm your slot.</p>
             </div>
-            
-            <form name="booking" method="POST" data-netlify="true" action="/success.html" class="bg-white text-black p-6 md:p-8 rounded-lg shadow-xl mx-2">
-                <input type="hidden" name="form-name" value="booking" />
-                <input type="hidden" name="estimated_cost" id="estimated_cost_input" value="$0.00" />
-                <input type="hidden" name="estimator_breakdown" id="estimator_breakdown_input" value="No items estimated." />
-                
-                <div class="bg-gray-50 p-4 md:p-6 rounded-lg mb-8 border border-gray-200">
-                    <h4 class="text-lg font-bold mb-4 uppercase text-center md:text-left">Quick Cost Estimator</h4>
-                    
-                    <div class="flex flex-col md:flex-row gap-4 mb-4">
-                        <div class="flex-grow">
-                            <label class="block text-xs font-semibold mb-1 text-gray-600">Select Item</label>
-                            <select id="item-select" class="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none bg-white text-sm">
-                                <option value="3.80" data-name="Shirts / Blouses">Shirts / Blouses ($3.80)</option>
-                                <option value="2.50" data-name="T-shirts / Polos">T-shirts / Polos ($2.50)</option>
-                                <option value="3.80" data-name="Pants">Pants ($3.80)</option>
-                                <option value="3.30" data-name="Jeans">Jeans ($3.30)</option>
-                                <option value="2.90" data-name="Jumper / Pyjama / Tracksuit">Jumper / Pyjama / Tracksuit ($2.90)</option>
-                                <option value="2.00" data-name="Shorts">Shorts (from $2.00)</option>
-                                <option value="2.80" data-name="Skirt">Skirt (from $2.80)</option>
-                                <option value="4.00" data-name="Dress">Dress (from $4.00)</option>
-                                <option value="6.00" data-name="Jacket">Jacket ($6.00)</option>
-                                <option value="1.80" data-name="Kids (Sizes 0-4)">Kids Sizes 0-4 (from $1.80)</option>
-                                <option value="2.80" data-name="Kids (Sizes 5-12)">Kids Sizes 5-12 (from $2.80)</option>
-                                <option value="3.30" data-name="School Uniforms">School Uniforms ($3.30)</option>
-                                <option value="1.00" data-name="Hanky / T-Towel">Hanky / T-Towel ($1.00)</option>
-                                <option value="1.80" data-name="Aprons / Pillow Cases">Aprons / Pillow Cases ($1.80)</option>
-                                <option value="4.00" data-name="Table Cloths">Table Cloths (from $4.00)</option>
-                                <option value="7.00" data-name="Bed Sheet">Bed Sheet (from $7.00)</option>
-                                <option value="10.00" data-name="Doona Cover">Doona Cover (from $10.00)</option>
-                            </select>
-                        </div>
-                        <div class="w-full md:w-24">
-                            <label class="block text-xs font-semibold mb-1 text-gray-600">Qty</label>
-                            <input type="number" id="item-qty" min="1" value="1" class="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none text-center">
-                        </div>
-                        <div class="w-full md:w-auto flex items-end">
-                            <button type="button" id="add-item-btn" class="w-full md:w-auto bg-black text-white px-6 py-2 rounded font-bold hover:bg-gray-800 transition-colors">Add</button>
-                        </div>
-                    </div>
-
-                    <ul id="estimator-list" class="mb-4 text-sm divide-y divide-gray-200 bg-white border border-gray-200 rounded empty:hidden"></ul>
-
-                    <div class="flex justify-between items-center border-t border-gray-300 pt-4 mt-2">
-                        <span class="font-semibold text-sm text-gray-600">Estimated Total:</span>
-                        <span class="text-xl md:text-2xl font-bold text-black" id="estimate-display">$0.00</span>
-                    </div>
-                    <p class="text-xs text-gray-500 mt-2">Only cash is accepted during drop off.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <form action="https://formspree.io/f/xvgzgeol" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-semibold mb-2" for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                        <label class="block text-sm font-bold uppercase tracking-widest mb-2">Full Name</label>
+                        <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-black outline-none transition-all">
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold mb-2" for="phone">Mobile Number *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="0412 345 678" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                        <label class="block text-sm font-bold uppercase tracking-widest mb-2">Email Address</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-black outline-none transition-all">
                     </div>
                 </div>
-                <div class="mb-6">
-                    <label class="block text-sm font-semibold mb-2" for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
+                <div>
+                    <label class="block text-sm font-bold uppercase tracking-widest mb-2">Phone Number</label>
+                    <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-black outline-none transition-all">
                 </div>
-
-                <div class="mb-6">
-                    <label class="block text-sm font-semibold mb-2">Expected Drop-Off Date & Time *</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <input type="date" id="dropoff_date" name="dropoff_date" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
-                        </div>
-                        <div>
-                            <select id="dropoff_time_val" name="dropoff_hour" required 
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black bg-white">
-                                <option value="" disabled selected>Select a date first</option>
-                            </select>
-                        </div>
-                    </div>
-                    <p id="hours-hint" class="text-xs text-gray-500 mt-2">Please select a date to see available times.</p>
+                <div>
+                    <label class="block text-sm font-bold uppercase tracking-widest mb-2">Estimated Number of Items</label>
+                    <input type="number" name="items" placeholder="e.g. 15" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-black outline-none transition-all">
                 </div>
-
-                <div class="mb-8">
-                    <label class="block text-sm font-semibold mb-2" for="notes">Special Instructions (Optional)</label>
-                    <textarea id="notes" name="notes" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black" placeholder="E.g., Please fold shirts instead of hanging."></textarea>
+                <div>
+                    <label class="block text-sm font-bold uppercase tracking-widest mb-2">Message / Special Instructions</label>
+                    <textarea name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-black outline-none transition-all"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-black text-white font-bold py-4 rounded-md hover:bg-gray-800 transition-colors uppercase tracking-wide text-sm md:text-base">
-                    Submit Booking Request
-                </button>
+                <button type="submit" class="w-full bg-black text-white font-bold py-4 rounded-md hover:bg-gray-800 transition-colors uppercase tracking-widest">Submit Booking Request</button>
             </form>
         </div>
     </section>
@@ -265,149 +192,45 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
                 <div>
-                    <h5 class="text-lg font-bold uppercase mb-4 tracking-wider">Pandey Press</h5>
-                    <p class="text-gray-600 leading-relaxed">Professional domestic ironing services bringing quality and crisp perfection to Melbourne.</p>
+                    <h5 class="text-xl font-bold uppercase mb-4">Pandey Press</h5>
+                    <p class="text-gray-600">Professional domestic ironing services bringing quality and crisp perfection to Melbourne.</p>
                 </div>
                 <div>
-                    <h5 class="text-lg font-bold uppercase mb-4 tracking-wider">Business Hours</h5>
+                    <h5 class="text-xl font-bold uppercase mb-4">Business Hours</h5>
                     <ul class="text-gray-600 space-y-2">
-                        <li>Monday - Friday: 17:00 – 21:00</li>
-                        <li>Saturday - Sunday: 09:00 – 17:00</li>
+                        <li>Monday - Friday: 5:00 pm – 9:00 pm</li>
+                        <li>Saturday - Sunday: 9:00 am – 5:00 pm</li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="text-lg font-bold uppercase mb-4 tracking-wider">Contact & Location</h5>
+                    <h5 class="text-xl font-bold uppercase mb-4">Contact & Location</h5>
                     <ul class="text-gray-600 space-y-2">
-                        <li>Email: <a href="mailto:info@pandeypress.com" class="hover:text-black transition-colors underline decoration-gray-300">info@pandeypress.com</a></li>
+                        <li>Email: <a href="mailto:info@pandeypress.com" class="hover:text-black transition-colors">info@pandeypress.com</a></li>
                         <li>Location: 14 Ernest Street</li>
                         <li>Blackburn, VIC 3130</li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs md:text-sm">
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
                 <p>&copy; 2026 Pandey Press. All Rights Reserved.</p>
-                <a href="service-policy.html" class="mt-4 md:mt-0 hover:text-black transition-colors font-medium underline decoration-gray-200">Read Our Service Policy</a>
+                <a href="service-policy.html" class="mt-4 md:mt-0 hover:text-black transition-colors font-medium underline">Read Our Service Policy</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Logic
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
 
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when a link is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Estimator logic
-        let estimateItems = [];
-        document.getElementById('add-item-btn').addEventListener('click', () => {
-            const select = document.getElementById('item-select');
-            const qtyInput = document.getElementById('item-qty');
-            const price = parseFloat(select.value);
-            const name = select.options[select.selectedIndex].getAttribute('data-name');
-            const qty = parseInt(qtyInput.value) || 1;
-            if (qty > 0) {
-                estimateItems.push({ name, price, qty });
-                updateEstimator();
-                qtyInput.value = 1; 
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
             }
         });
-        function removeItem(index) {
-            estimateItems.splice(index, 1);
-            updateEstimator();
-        }
-        function updateEstimator() {
-            const listEl = document.getElementById('estimator-list');
-            const displayEl = document.getElementById('estimate-display');
-            const hiddenCostInput = document.getElementById('estimated_cost_input');
-            const hiddenBreakdownInput = document.getElementById('estimator_breakdown_input');
-            listEl.innerHTML = '';
-            let total = 0;
-            let breakdownText = '';
-            estimateItems.forEach((item, index) => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
-                breakdownText += `${item.qty}x ${item.name} ($${itemTotal.toFixed(2)})\n`;
-                listEl.innerHTML += `<li class="flex justify-between items-center px-4 py-3"><span>${item.qty}x ${item.name}</span><div class="flex items-center gap-4 md:gap-6"><span class="font-semibold">$${itemTotal.toFixed(2)}</span><button type="button" onclick="removeItem(${index})" class="text-red-500 font-bold px-2 py-1 bg-red-50 rounded text-xs">Remove</button></div></li>`;
-            });
-            displayEl.textContent = '$' + total.toFixed(2);
-            hiddenCostInput.value = '$' + total.toFixed(2);
-            hiddenBreakdownInput.value = breakdownText || "No items.";
-        }
-
-        // --- SMART TIME LOGIC (24H Format) ---
-        const dateInput = document.getElementById('dropoff_date');
-        const timeSelect = document.getElementById('dropoff_time_val');
-        const hoursHint = document.getElementById('hours-hint');
-
-        const now = new Date();
-        const todayStr = now.toLocaleDateString('en-ca'); 
-        dateInput.setAttribute('min', todayStr);
-
-        function refreshTimeSlots() {
-            const selectedDateString = dateInput.value;
-            if (!selectedDateString) return;
-
-            const selectedDate = new Date(selectedDateString);
-            const day = selectedDate.getUTCDay(); 
-            const isToday = selectedDateString === todayStr;
-            const currentHour = now.getHours();
-            const currentMinutes = now.getMinutes();
-
-            timeSelect.innerHTML = '';
-            let slots = [];
-            
-            if (day >= 1 && day <= 5) { // Weekdays: 17:00-21:00
-                slots = [
-                    { h: 17, m: 0, disp: "17:00" }, { h: 17, m: 30, disp: "17:30" },
-                    { h: 18, m: 0, disp: "18:00" }, { h: 18, m: 30, disp: "18:30" },
-                    { h: 19, m: 0, disp: "19:00" }, { h: 19, m: 30, disp: "19:30" },
-                    { h: 20, m: 0, disp: "20:00" }, { h: 20, m: 30, disp: "20:30" },
-                    { h: 21, m: 0, disp: "21:00" }
-                ];
-                hoursHint.textContent = "Weekday Hours: 17:00 – 21:00";
-            } else { // Weekends: 09:00-17:00
-                slots = [
-                    { h: 9, m: 0, disp: "09:00" }, { h: 9, m: 30, disp: "09:30" },
-                    { h: 10, m: 0, disp: "10:00" }, { h: 10, m: 30, disp: "10:30" },
-                    { h: 11, m: 0, disp: "11:00" }, { h: 11, m: 30, disp: "11:30" },
-                    { h: 12, m: 0, disp: "12:00" }, { h: 12, m: 30, disp: "12:30" },
-                    { h: 13, m: 0, disp: "13:00" }, { h: 13, m: 30, disp: "13:30" },
-                    { h: 14, m: 0, disp: "14:00" }, { h: 14, m: 30, disp: "14:30" },
-                    { h: 15, m: 0, disp: "15:00" }, { h: 15, m: 30, disp: "15:30" },
-                    { h: 16, m: 0, disp: "16:00" }, { h: 16, m: 30, disp: "16:30" },
-                    { h: 17, m: 0, disp: "17:00" }
-                ];
-                hoursHint.textContent = "Weekend Hours: 09:00 – 17:00";
-            }
-
-            slots.forEach(slot => {
-                if (!isToday || (slot.h > currentHour) || (slot.h === currentHour && slot.m > currentMinutes)) {
-                    let opt = document.createElement('option');
-                    opt.value = slot.disp;
-                    opt.innerHTML = slot.disp;
-                    timeSelect.appendChild(opt);
-                }
-            });
-
-            if (timeSelect.options.length === 0) {
-                let opt = document.createElement('option');
-                opt.innerHTML = "Closed for selected day";
-                timeSelect.appendChild(opt);
-            }
-        }
-
-        dateInput.addEventListener('change', refreshTimeSlots);
     </script>
 </body>
 </html>
