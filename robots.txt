@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /success.html
 
-Sitemap: https://pandeypress.com.au/sitemap.xml
+Sitemap: https://pandeypress.com/sitemap.xml
