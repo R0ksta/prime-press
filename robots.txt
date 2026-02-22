@@ -1,5 +1,21 @@
 User-agent: *
 Allow: /
 
-# Direct link to your sitemap
+# Specifically block major AI crawlers from using your site for training
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: OMPRIBOT
+Disallow: /
+
+# Link to your sitemap
 Sitemap: https://www.pandeypress.com/sitemap.xml
