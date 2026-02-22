@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-537M57GV');</script>
     <meta name="google-site-verification" content="Io9C8mazKvB5bI2Zb2Ri3D0TDi6ztYIHxA33BrRaeRU" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GXDS4FYN4"></script>
@@ -58,7 +63,8 @@
     </style>
 </head>
 <body class="bg-white text-black antialiased">
-
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-537M57GV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
@@ -390,6 +396,13 @@
                 headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
+                    // TRACKING: Signal GTM that a booking was successful
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'booking_submitted',
+                        'estimated_value': document.getElementById('estimated_cost_input').value
+                    });
+
                     // SUCCESS: Manually redirect to your success page
                     window.location.href = "/success.html";
                 } else {
