@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Pandey Press - Premium Ironing Service in Blackburn, Victoria</title>
-    <meta name="description" content="Premium domestic ironing and garment pressing services in Blackburn, Victoria. Quality, crisp results with convenient drop-off. Book your professional ironing today!">
+    <meta name="title" content="Pandey Press - Premium Ironing Service in Blackburn, Victoria">
+    <meta name="description" content="Professional domestic ironing and garment pressing services in Blackburn, Melbourne. Quality results with convenient drop-off. Book your professional ironing today!">
     <meta name="keywords" content="ironing services Blackburn, clothes pressing Melbourne, professional ironing VIC 3130, laundry services Blackburn, domestic ironing, laundry help Melbourne">
     <link rel="canonical" href="https://pandeypress.com/">
 
@@ -20,6 +21,52 @@
     <meta property="og:title" content="Pandey Press | Professional Ironing in Blackburn">
     <meta property="og:description" content="Crisp, professional ironing services delivered with care. Located in Blackburn, VIC.">
     <meta property="og:image" content="https://pandeypress.com/assets/og-image.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pandeypress.com/">
+    <meta property="twitter:title" content="Pandey Press | Professional Ironing in Blackburn">
+    <meta property="twitter:description" content="Crisp, professional ironing services delivered with care. Located in Blackburn, VIC.">
+    <meta property="twitter:image" content="https://pandeypress.com/assets/og-image.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Pandey Press",
+      "image": "https://pandeypress.com/assets/og-image.jpg",
+      "@id": "https://pandeypress.com",
+      "url": "https://pandeypress.com",
+      "telephone": "+61422430990",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Blackburn",
+        "addressLocality": "Melbourne",
+        "addressRegion": "VIC",
+        "postalCode": "3130",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -37.8200, 
+        "longitude": 145.1500
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "17:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "priceRange": "$$"
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -53,8 +100,6 @@
         }
 
         /* --- Global Button Hover Inversion --- */
-        
-        /* Standard Black Buttons (Invert to white background/black text) */
         button, 
         a[href="#book-now"], 
         #add-item-btn, 
@@ -72,7 +117,7 @@
             border: 2px solid black !important;
         }
 
-        /* Hero Specific Buttons (Outline white, invert to solid white) */
+        /* Hero Specific Buttons */
         .hero-btn {
             border: 2px solid white !important;
             transition: all 0.3s ease-in-out !important;
@@ -82,7 +127,6 @@
             background-color: white !important;
             color: black !important;
         }
-
     </style>
 </head>
 <body class="bg-white text-black antialiased">
@@ -376,204 +420,3 @@
             <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs md:text-sm">
                 <p>&copy; 2026 Pandey Press. All Rights Reserved.</p>
                 <a href="service-policy.html" target="_blank" class="mt-4 md:mt-0 hover:text-black transition-colors font-medium underline decoration-gray-200">Read Our Service Policy</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile Menu Logic
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when a link is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Estimator logic
-        let estimateItems = [];
-        let currentTotal = 0; // Track total globally for validation
-
-        document.getElementById('add-item-btn').addEventListener('click', () => {
-            const select = document.getElementById('item-select');
-            const qtyInput = document.getElementById('item-qty');
-            const price = parseFloat(select.value);
-            const name = select.options[select.selectedIndex].getAttribute('data-name');
-            const qty = parseInt(qtyInput.value) || 1;
-            if (qty > 0) {
-                estimateItems.push({ name, price, qty });
-                updateEstimator();
-                qtyInput.value = 1; 
-            }
-        });
-
-        function removeItem(index) {
-            estimateItems.splice(index, 1);
-            updateEstimator();
-        }
-
-        function updateEstimator() {
-            const listEl = document.getElementById('estimator-list');
-            const displayEl = document.getElementById('estimate-display');
-            const hiddenCostInput = document.getElementById('estimated_cost_input');
-            const hiddenBreakdownInput = document.getElementById('estimator_breakdown_input');
-            const minWarning = document.getElementById('minimum-warning');
-            
-            listEl.innerHTML = '';
-            currentTotal = 0;
-            let breakdownText = '';
-            
-            estimateItems.forEach((item, index) => {
-                const itemTotal = item.price * item.qty;
-                currentTotal += itemTotal;
-                breakdownText += `${item.qty}x ${item.name} ($${itemTotal.toFixed(2)})\n`;
-                listEl.innerHTML += `<li class="flex justify-between items-center px-4 py-3"><span>${item.qty}x ${item.name}</span><div class="flex items-center gap-4 md:gap-6"><span class="font-semibold">$${itemTotal.toFixed(2)}</span><button type="button" onclick="removeItem(${index})" class="text-red-500 font-bold px-2 py-1 bg-red-50 rounded text-xs border-none !bg-transparent hover:!bg-red-50">Remove</button></div></li>`;
-            });
-            
-            displayEl.textContent = '$' + currentTotal.toFixed(2);
-            hiddenCostInput.value = '$' + currentTotal.toFixed(2);
-            hiddenBreakdownInput.value = breakdownText || "No items.";
-
-            // Hide warning if they reach the minimum while adding items
-            if (currentTotal >= 30) {
-                minWarning.classList.add('hidden');
-            }
-        }
-
-        // --- SMART TIME LOGIC ---
-        const dateInput = document.getElementById('dropoff_date');
-        const timeSelect = document.getElementById('dropoff_time_val');
-        const hoursHint = document.getElementById('hours-hint');
-
-        const now = new Date();
-        const todayStr = now.toLocaleDateString('en-ca'); 
-        dateInput.setAttribute('min', todayStr);
-
-        function refreshTimeSlots() {
-            const selectedDateString = dateInput.value;
-            if (!selectedDateString) return;
-
-            const selectedDate = new Date(selectedDateString);
-            const day = selectedDate.getDay(); 
-            const isToday = selectedDateString === todayStr;
-            const currentHour = now.getHours();
-            const currentMinutes = now.getMinutes();
-
-            timeSelect.innerHTML = '';
-            let slots = [];
-            
-            if (day >= 1 && day <= 5) { // Weekdays: 17:00-21:00
-                slots = [
-                    { h: 17, m: 0, disp: "17:00" }, { h: 17, m: 30, disp: "17:30" },
-                    { h: 18, m: 0, disp: "18:00" }, { h: 18, m: 30, disp: "18:30" },
-                    { h: 19, m: 0, disp: "19:00" }, { h: 19, m: 30, disp: "19:30" },
-                    { h: 20, m: 0, disp: "20:00" }, { h: 20, m: 30, disp: "20:30" },
-                    { h: 21, m: 0, disp: "21:00" }
-                ];
-                hoursHint.textContent = "Weekday Hours: 17:00 – 21:00";
-            } else { // Weekends: 09:00-17:00
-                slots = [
-                    { h: 9, m: 0, disp: "09:00" }, { h: 9, m: 30, disp: "09:30" },
-                    { h: 10, m: 0, disp: "10:00" }, { h: 10, m: 30, disp: "10:30" },
-                    { h: 11, m: 0, disp: "11:00" }, { h: 11, m: 30, disp: "11:30" },
-                    { h: 12, m: 0, disp: "12:00" }, { h: 12, m: 30, disp: "12:30" },
-                    { h: 13, m: 0, disp: "13:00" }, { h: 13, m: 30, disp: "13:30" },
-                    { h: 14, m: 0, disp: "14:00" }, { h: 14, m: 30, disp: "14:30" },
-                    { h: 15, m: 0, disp: "15:00" }, { h: 15, m: 30, disp: "15:30" },
-                    { h: 16, m: 0, disp: "16:00" }, { h: 16, m: 30, disp: "16:30" },
-                    { h: 17, m: 0, disp: "17:00" }
-                ];
-                hoursHint.textContent = "Weekend Hours: 09:00 – 17:00";
-            }
-
-            slots.forEach(slot => {
-                if (!isToday || (slot.h > currentHour) || (slot.h === currentHour && slot.m > currentMinutes)) {
-                    let opt = document.createElement('option');
-                    opt.value = slot.disp;
-                    opt.innerHTML = slot.disp;
-                    timeSelect.appendChild(opt);
-                }
-            });
-
-            if (timeSelect.options.length === 0) {
-                let opt = document.createElement('option');
-                opt.innerHTML = "Closed for selected day";
-                timeSelect.appendChild(opt);
-            }
-        }
-
-        dateInput.addEventListener('change', refreshTimeSlots);
-
-        // --- FORMSPREE AJAX CUSTOM REDIRECT ---
-        const form = document.getElementById("booking-form");
-        const submitBtn = document.getElementById("submit-btn");
-        const btnText = document.getElementById("btn-text");
-        const status = document.getElementById("form-status");
-        const minWarning = document.getElementById('minimum-warning');
-
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault(); // Stop normal form submission
-
-            // --- MINIMUM PRICE VALIDATION ---
-            if (currentTotal < 30) {
-                minWarning.classList.remove('hidden');
-                status.innerHTML = "Error: Minimum charge is $30.00. Please add more items.";
-                status.classList.remove("hidden");
-                status.classList.add("text-red-600");
-                
-                // Scroll the warning into view so the user sees why it failed
-                minWarning.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                return; 
-            }
-            
-            // UI Feedback: Disable button and show spinner
-            submitBtn.disabled = true;
-            btnText.innerHTML = '<span class="spinner"></span> Sending...';
-            status.classList.remove("hidden", "text-red-600");
-            status.classList.add("text-gray-600");
-            status.innerHTML = "Processing your request...";
-
-            const formData = new FormData(form);
-
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    window.location.href = "success.html";
-                } else {
-                    const data = await response.json();
-                    if (Object.hasOwn(data, 'errors')) {
-                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        status.innerHTML = "Oops! There was a problem submitting your form.";
-                    }
-                    status.classList.add("text-red-600");
-                    resetSubmitButton();
-                }
-            } catch (error) {
-                status.innerHTML = "Oops! Connection error. Please try again later.";
-                status.classList.add("text-red-600");
-                resetSubmitButton();
-            }
-        });
-
-        function resetSubmitButton() {
-            submitBtn.disabled = false;
-            btnText.innerHTML = "Submit Booking Request";
-        }
-    </script>
-</body>
-</html>
