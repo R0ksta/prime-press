@@ -199,7 +199,9 @@
                 <p class="mt-4 text-white font-semibold text-xs md:text-sm uppercase tracking-wide px-4">Please do not drop off or pick up items until an email confirmation has been provided.</p>
             </div>
             
-            <form action="https://formspree.io/f/xwvnraga" method="POST" class="bg-white text-black p-6 md:p-8 rounded-lg shadow-xl mx-2">
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="bg-white text-black p-6 md:p-8 rounded-lg shadow-xl mx-2">
+                <input type="hidden" name="_next" value="https://pandeypress.com/success.html">
+                
                 <input type="hidden" name="estimated_cost" id="estimated_cost_input" value="$0.00" />
                 <input type="hidden" name="estimator_breakdown" id="estimator_breakdown_input" value="No items estimated." />
                 
@@ -287,7 +289,7 @@
                     Submit Booking Request
                 </button>
             </form>
-            </div>
+        </div>
     </section>
 
     <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
