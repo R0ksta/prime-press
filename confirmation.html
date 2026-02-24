@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: 'Inter', Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #000000; }
+        .wrapper { width: 100%; table-layout: fixed; background-color: #f9f9f9; padding-bottom: 40px; }
+        .main { background-color: #ffffff; margin: 0 auto; width: 100%; max-width: 600px; border-spacing: 0; }
+        .header { background-color: #ffffff; padding: 30px; text-align: center; border-bottom: 1px solid #eeeeee; }
+        .hero { background-color: #000000; color: #ffffff; padding: 40px 20px; text-align: center; }
+        .content { padding: 30px; line-height: 1.6; }
+        .section-title { font-weight: bold; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; margin-bottom: 10px; border-bottom: 2px solid #000000; display: inline-block; }
+        .details-table { width: 100%; margin-bottom: 20px; border-collapse: collapse; }
+        .details-table td { padding: 8px 0; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+        .label { font-weight: bold; width: 150px; font-size: 13px; text-transform: uppercase; }
+        .address-box { background-color: #f4f4f4; padding: 20px; text-align: center; margin: 20px 0; border-radius: 4px; }
+        .btn { background-color: #000000; color: #ffffff !important; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; text-transform: uppercase; font-size: 13px; }
+        .footer { text-align: center; padding: 30px; font-size: 12px; color: #666666; }
+        .footer a { color: #000000; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <center class="wrapper">
+        <table class="main">
+            <tr>
+                <td class="header">
+                    <img src="https://pandeypress.com/logo-main.png" alt="Pandey Press" width="150" style="display: block; margin: 0 auto;">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="hero">
+                    <h1 style="margin: 0; font-size: 24px; letter-spacing: 2px; text-transform: uppercase;">Booking Confirmed</h1>
+                    <p style="margin: 10px 0 0; font-weight: 300; color: #cccccc;">Thank you for choosing Pandey Press</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="content">
+                    <p>Hi {{name}},</p>
+                    <p>Your ironing service booking has been successfully received. Please find your drop-off details and summary below.</p>
+
+                    <div class="address-box">
+                        <span class="section-title">Drop-Off Location</span>
+                        <p style="margin: 10px 0; font-size: 18px; font-weight: bold;">14 Ernest Street<br>Blackburn, VIC 3130</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=14+Ernest+Street+Blackburn+VIC+3130" class="btn">Open in Google Maps</a>
+                    </div>
+
+                    <span class="section-title">Booking Details</span>
+                    <table class="details-table">
+                        <tr>
+                            <td class="label">Client</td>
+                            <td>{{name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Mobile</td>
+                            <td>{{phone}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Email</td>
+                            <td>{{email}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label" style="color: #2b7de9;">Drop-Off Date</td>
+                            <td style="font-weight: bold;">{{dropoff_date}} at {{dropoff_hour}}</td>
+                        </tr>
+                    </table>
+
+                    <span class="section-title">Estimated Service</span>
+                    <table class="details-table">
+                        <tr>
+                            <td class="label">Items</td>
+                            <td>{{estimator_breakdown}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Approx. Cost</td>
+                            <td style="font-size: 18px; font-weight: bold;">{{estimated_cost}}</td>
+                        </tr>
+                    </table>
+
+                    <span class="section-title">Special Instructions</span>
+                    <p style="font-style: italic; color: #444444;">"{{notes}}"</p>
+
+                    <p style="font-size: 12px; color: #666666; margin-top: 30px;">
+                        <strong>Note:</strong> Final pricing may vary slightly based on garment complexity. Please ensure all items are dry and ready for pressing. Payment is accepted via Cash or Bank Transfer upon collection.
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="footer">
+                    <p><strong>Pandey Press | Blackburn, Victoria</strong></p>
+                    <p>
+                        <a href="tel:0422430990">0422 430 990</a> | 
+                        <a href="mailto:admin@pandeypress.com">admin@pandeypress.com</a>
+                    </p>
+                    <p>&copy; 2026 Pandey Press. All Rights Reserved.</p>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
