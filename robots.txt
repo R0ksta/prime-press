@@ -1,4 +1,4 @@
-# Pandey Press Robots.txt
+# Prime Press Robots.txt
 # Allow all bots to crawl the site to ensure SEO and AI visibility
 
 User-agent: *
