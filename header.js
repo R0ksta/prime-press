@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const path = window.location.pathname;
     const isHome = path === "/" || path === "/index.html" || path.endsWith("index.html");
     const isFAQ = path.includes("faq.html");
-    const isAreas = path.includes("service-areas.html");
+    const isAreas = path.includes("service-areas.html") || path.includes("/service-areas/");
     const isPolicy = path.includes("service-policy.html");
 
     // Helper function to pick classes based on active state
@@ -44,10 +44,10 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <a href="/index.html" class="block py-4 px-4 border-b border-gray-100 ${isHome ? 'bg-gray-50 font-bold' : ''}">Home</a>
-            <a href="/faq.html" class="block py-4 px-4 border-b border-gray-100 ${isFAQ ? 'bg-gray-50 font-bold' : ''}">FAQ</a>
-            <a href="/service-areas.html" class="block py-4 px-4 border-b border-gray-100 ${isAreas ? 'bg-gray-50 font-bold' : ''}">Service Areas</a>
-            <a href="/service-policy.html" class="block py-4 px-4 border-b border-gray-100 ${isPolicy ? 'bg-gray-50 font-bold' : ''}">Service Policy</a>
+            <a href="/index.html" class="block py-4 px-4 border-b border-gray-100 ${isHome ? 'bg-gray-50 font-bold text-black' : 'text-gray-600'}">Home</a>
+            <a href="/faq.html" class="block py-4 px-4 border-b border-gray-100 ${isFAQ ? 'bg-gray-50 font-bold text-black' : 'text-gray-600'}">FAQ</a>
+            <a href="/service-areas.html" class="block py-4 px-4 border-b border-gray-100 ${isAreas ? 'bg-gray-50 font-bold text-black' : 'text-gray-600'}">Service Areas</a>
+            <a href="/service-policy.html" class="block py-4 px-4 border-b border-gray-100 ${isPolicy ? 'bg-gray-50 font-bold text-black' : 'text-gray-600'}">Service Policy</a>
             <div class="p-4 flex flex-col gap-3">
                 <a href="tel:0422430990" class="block bg-gray-100 text-black px-6 py-4 rounded-md text-center font-bold uppercase tracking-wide">Call: 0422 430 990</a>
                 <a href="/index.html#book-now" class="block bg-black text-white py-4 rounded-md text-center font-bold">Book Now</a>
@@ -59,7 +59,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    if(menuToggle) {
-        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    if(menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     }
 });
