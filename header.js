@@ -59,9 +59,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    
     if(menuToggle && mobileMenu) {
+        // Click toggle
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // Close on scroll
+        window.addEventListener('scroll', () => {
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }, { passive: true });
     }
 });
