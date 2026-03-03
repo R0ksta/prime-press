@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const isAreas = path.includes("service-areas.html") || path.includes("/service-areas/");
     const isPolicy = path.includes("service-policy.html");
 
+    // 1. SELECT THE CONTAINER AND FORCE STICKY
+    const globalHeader = document.getElementById('global-header');
+    if (globalHeader) {
+        // We apply the sticky classes to the container itself
+        globalHeader.classList.add('sticky', 'top-0', 'z-50', 'w-full', 'bg-white');
+    }
+
     // Helper function to pick classes based on active state
     const linkClass = (isActive) => 
         isActive 
@@ -13,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         : "text-gray-600 hover:text-black font-medium transition-colors";
 
     const headerHTML = `
-    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <nav class="border-b border-gray-200 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
@@ -43,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0">
             <a href="/index.html" class="block py-4 px-4 border-b border-gray-100 ${isHome ? 'bg-gray-50 font-bold text-black' : 'text-gray-600'}">Home</a>
             <a href="/faq.html" class="block py-4 px-4 border-b border-gray-100 ${isFAQ ? 'bg-gray-50 font-bold text-black' : 'text-gray-600'}">FAQ</a>
             <a href="/service-areas.html" class="block py-4 px-4 border-b border-gray-100 ${isAreas ? 'bg-gray-50 font-bold text-black' : 'text-gray-600'}">Service Areas</a>
@@ -55,22 +62,41 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
     </nav>`;
 
-    document.getElementById('global-header').innerHTML = headerHTML;
+    if (globalHeader) {
+        globalHeader.innerHTML = headerHTML;
+    }
 
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     
     if(menuToggle && mobileMenu) {
-        // Click toggle
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Use a flag to track state
+        let isMenuOpen = false;
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent immediate closing if click propagates
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
         });
 
-        // Close on scroll
+        // Close on scroll behavior
         window.addEventListener('scroll', () => {
-            if (!mobileMenu.classList.contains('hidden')) {
+            if (isMenuOpen) {
+                isMenuOpen = false;
                 mobileMenu.classList.add('hidden');
             }
         }, { passive: true });
+
+        // Close when clicking a link inside the menu
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+            });
+        });
     }
 });
