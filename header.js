@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. SELECT THE CONTAINER AND FORCE STICKY
     const globalHeader = document.getElementById('global-header');
     if (globalHeader) {
-        // We apply the sticky classes to the container itself
+        // Ensure the container maintains its sticky position during and after injection
         globalHeader.classList.add('sticky', 'top-0', 'z-50', 'w-full', 'bg-white');
     }
 
@@ -70,11 +70,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const mobileMenu = document.getElementById('mobile-menu');
     
     if(menuToggle && mobileMenu) {
-        // Use a flag to track state
         let isMenuOpen = false;
 
         menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent immediate closing if click propagates
+            e.stopPropagation();
             isMenuOpen = !isMenuOpen;
             if (isMenuOpen) {
                 mobileMenu.classList.remove('hidden');
@@ -83,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // Close on scroll behavior
         window.addEventListener('scroll', () => {
             if (isMenuOpen) {
                 isMenuOpen = false;
@@ -91,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }, { passive: true });
 
-        // Close when clicking a link inside the menu
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 isMenuOpen = false;

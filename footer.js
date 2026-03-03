@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const footerElement = document.getElementById('global-footer');
     if (footerElement) {
+        // Clear skeleton classes and inject real HTML
+        footerElement.classList.remove('bg-white', 'border-t', 'border-gray-200', 'pt-16', 'pb-8');
         footerElement.innerHTML = footerHTML;
 
         const backToTopBtn = document.getElementById('backToTop');

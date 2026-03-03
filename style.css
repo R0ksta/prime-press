@@ -1,101 +1,116 @@
 /* Prime Press - Global Stylesheet
-  This file handles all layout, colors, and button behaviors.
+   Updated: 2026-03-04
 */
 
-/* 0. PERFORMANCE OPTIMIZATION */
+/* 0. PERFORMANCE & FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
 /* Ensuring fonts swap immediately to improve PageSpeed Insights */
-@font-face {
-  font-family: 'Segoe UI';
-  font-display: swap;
-  src: local('Segoe UI');
+* {
+    font-display: swap;
 }
 
 /* 1. RESET & BASE STYLES */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-  --primary-blue: #2563eb; 
-  --call-green: #16a34a; 
-  --white: #ffffff;
-  --dark-text: #1f2937;
-  --light-bg: #f3f4f6;
-  --transition: 0.3s ease;
+    --primary-blue: #000000; /* Set to Black to match your recent branding */
+    --call-green: #16a34a; 
+    --white: #ffffff;
+    --dark-text: #000000;
+    --light-bg: #f3f4f6;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  color: var(--dark-text);
-  background-color: var(--white);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
 }
 
-/* 2. NAVIGATION & LAYOUT HELPERS */
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
+/* 2. SKELETON LOADING STATES */
+/* This provides the shimmer effect for global-header and global-footer */
+.skeleton {
+    background: #f6f7f8;
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite linear;
 }
 
-header {
-  padding: 20px 0;
-  background: var(--white);
-  border-bottom: 1px solid #ddd;
+@keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
 }
 
-section {
-  padding: 50px 0;
+/* Pre-reserve space for injected JS components to stop "jumping" */
+#global-header { 
+    min-height: 80px; 
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: white;
 }
 
-/* 3. UNIVERSAL BUTTON STYLES (The Inversion Logic) */
-/* This targets every <button> and any link with the class .btn */
+#global-footer { 
+    min-height: 300px; 
+}
+
+/* 3. FLOATING BACK TO TOP BUTTON */
+/* Ensure the button is styled even if the JS takes a second to load */
+#backToTop {
+    transition: all var(--transition);
+}
+
+/* 4. UNIVERSAL BUTTON STYLES (The Inversion Logic) */
 button, .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 28px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 14px;
-  cursor: pointer;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all var(--transition);
-  /* 2px border prevents the button from shaking on hover */
-  border: 2px solid var(--primary-blue);
-  background-color: var(--primary-blue);
-  color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 6px; /* Slightly more modern curve */
+    transition: all var(--transition);
+    border: 2px solid var(--primary-blue);
+    background-color: var(--primary-blue);
+    color: var(--white);
 }
 
-/* THE INVERSION: Hover state for all standard buttons */
+/* THE INVERSION */
 button:hover, .btn:hover {
-  background-color: transparent;
-  color: var(--primary-blue);
+    background-color: var(--white);
+    color: var(--primary-blue);
+    border-color: var(--primary-blue);
 }
 
-/* THE CALL BUTTON: Specific color but same inversion logic */
-.btn-call {
-  background-color: var(--call-green);
-  border-color: var(--call-green);
-  color: var(--white);
-}
-
-.btn-call:hover {
-  background-color: transparent;
-  color: var(--call-green);
-  border-color: var(--call-green);
-}
-
-/* 4. TYPOGRAPHY */
+/* 5. TYPOGRAPHY */
 h1, h2, h3 {
-  color: var(--primary-blue);
-  margin-bottom: 1rem;
+    color: var(--dark-text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+    font-weight: 800;
 }
 
-p {
-  margin-bottom: 1.2rem;
+/* Utility to hide elements visually but keep for screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
