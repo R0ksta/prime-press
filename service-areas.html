@@ -29,28 +29,6 @@
     <link rel="manifest" href="/site.webmanifest?v=2">
     <link rel="shortcut icon" href="/favicon.ico?v=2">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://primepress.com.au/service-areas.html">
-    <meta property="og:site_name" content="Prime Press Ironing Services">
-    <meta property="og:title" content="Service Areas | Prime Press Ironing Service">
-    <meta property="og:description" content="Professional ironing services across Melbourne's Eastern Suburbs. Find your local area and get your weekends back.">
-    <meta property="og:image" content="https://primepress.com.au/logo-main.png">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://primepress.com.au/service-areas.html">
-    <meta property="twitter:title" content="Service Areas | Prime Press Ironing Service">
-    <meta property="twitter:description" content="Professional ironing services across Melbourne's Eastern Suburbs. Find your local area and get your weekends back.">
-    <meta property="twitter:image" content="https://primepress.com.au/logo-main.png">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Prime Press Ironing Services",
-      "url": "https://primepress.com.au/"
-    }
-    </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
@@ -82,252 +60,258 @@
     <div id="global-header"></div>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <header class="mb-16 text-center">
+        <header class="mb-12 text-center">
             <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 uppercase">Service Areas</h1>
-            <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                Prime Press provides premium professional ironing services across Melbourne's Eastern Suburbs. Select your local area below to learn more and book your drop-off.
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-10">
+                Find your suburb or postcode below to see our local service details.
             </p>
+            
+            <div class="max-w-md mx-auto relative mb-12">
+                <input type="text" id="areaSearch" placeholder="Search suburb or postcode (e.g. 3130)" 
+                    class="w-full px-6 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:border-black focus:bg-white outline-none transition-all shadow-sm text-lg">
+                <div id="searchStats" class="mt-3 text-sm text-gray-400 font-medium"></div>
+            </div>
         </header>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <a href="/service-areas/ashburton.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+        <div id="suburbGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <a href="/service-areas/ashburton.html" data-postcode="3147" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ashburton</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3147</span>
                 </div>
             </a>
-            <a href="/service-areas/ashwood.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/ashwood.html" data-postcode="3147" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ashwood</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3147</span>
                 </div>
             </a>
-            <a href="/service-areas/balwyn.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/balwyn.html" data-postcode="3103" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Balwyn</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3103</span>
                 </div>
             </a>
-            <a href="/service-areas/balwyn-north.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/balwyn-north.html" data-postcode="3103" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Balwyn North</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3103</span>
                 </div>
             </a>
-            <a href="/service-areas/bayswater.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/bayswater.html" data-postcode="3153" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Bayswater</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3153</span>
                 </div>
             </a>
-            <a href="/service-areas/blackburn-north.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/blackburn-north.html" data-postcode="3130" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Blackburn North</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3130</span>
                 </div>
             </a>
-            <a href="/service-areas/blackburn-south.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/blackburn-south.html" data-postcode="3130" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Blackburn South</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3130</span>
                 </div>
             </a>
-            <a href="/service-areas/box-hill.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/box-hill.html" data-postcode="3128" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Box Hill</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3128</span>
                 </div>
             </a>
-            <a href="/service-areas/box-hill-north.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/box-hill-north.html" data-postcode="3128" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Box Hill North</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3128</span>
                 </div>
             </a>
-            <a href="/service-areas/box-hill-south.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/box-hill-south.html" data-postcode="3128" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Box Hill South</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3128</span>
                 </div>
             </a>
-            <a href="/service-areas/bulleen.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/bulleen.html" data-postcode="3105" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Bulleen</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3105</span>
                 </div>
             </a>
-            <a href="/service-areas/burwood.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/burwood.html" data-postcode="3125" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Burwood</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3125</span>
                 </div>
             </a>
-            <a href="/service-areas/burwood-east.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/burwood-east.html" data-postcode="3125" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Burwood East</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3125</span>
                 </div>
             </a>
-            <a href="/service-areas/camberwell.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/camberwell.html" data-postcode="3124" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Camberwell</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3124</span>
                 </div>
             </a>
-            <a href="/service-areas/canterbury.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/canterbury.html" data-postcode="3126" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Canterbury</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3126</span>
                 </div>
             </a>
-            <a href="/service-areas/chadstone.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/chadstone.html" data-postcode="3148" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Chadstone</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3148</span>
                 </div>
             </a>
-            <a href="/service-areas/doncaster.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/doncaster.html" data-postcode="3108" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Doncaster</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3108</span>
                 </div>
             </a>
-            <a href="/service-areas/doncaster-east.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/doncaster-east.html" data-postcode="3108" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Doncaster East</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3108</span>
                 </div>
             </a>
-            <a href="/service-areas/donvale.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/donvale.html" data-postcode="3111" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Donvale</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3111</span>
                 </div>
             </a>
-            <a href="/service-areas/forest-hill.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/forest-hill.html" data-postcode="3131" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Forest Hill</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3131</span>
                 </div>
             </a>
-            <a href="/service-areas/glen-waverley.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/glen-waverley.html" data-postcode="3150" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Glen Waverley</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3150</span>
                 </div>
             </a>
-            <a href="/service-areas/hawthorn-east.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/hawthorn-east.html" data-postcode="3123" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Hawthorn East</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3123</span>
                 </div>
             </a>
-            <a href="/service-areas/heathmont.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/heathmont.html" data-postcode="3135" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Heathmont</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3135</span>
                 </div>
             </a>
-            <a href="/service-areas/mitcham.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/mitcham.html" data-postcode="3132" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Mitcham</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3132</span>
                 </div>
             </a>
-            <a href="/service-areas/mont-albert.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/mont-albert.html" data-postcode="3127" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Mont Albert</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3127</span>
                 </div>
             </a>
-            <a href="/service-areas/mont-albert-north.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/mont-albert-north.html" data-postcode="3127" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Mont Albert North</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3127</span>
                 </div>
             </a>
-            <a href="/service-areas/mount-waverley.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/mount-waverley.html" data-postcode="3149" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Mount Waverley</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3149</span>
                 </div>
             </a>
-            <a href="/service-areas/nunawading.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/nunawading.html" data-postcode="3131" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Nunawading</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3131</span>
                 </div>
             </a>
-            <a href="/service-areas/ringwood.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/ringwood.html" data-postcode="3134" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ringwood</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3134</span>
                 </div>
             </a>
-            <a href="/service-areas/ringwood-east.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/ringwood-east.html" data-postcode="3134" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ringwood East</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3134</span>
                 </div>
             </a>
-            <a href="/service-areas/ringwood-north.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/ringwood-north.html" data-postcode="3134" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ringwood North</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3134</span>
                 </div>
             </a>
-            <a href="/service-areas/surrey-hills.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/surrey-hills.html" data-postcode="3127" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Surrey Hills</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3127</span>
                 </div>
             </a>
-            <a href="/service-areas/syndal.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/syndal.html" data-postcode="3150" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Syndal</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3150</span>
                 </div>
             </a>
-            <a href="/service-areas/templestowe.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/templestowe.html" data-postcode="3106" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Templestowe</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3106</span>
                 </div>
             </a>
-            <a href="/service-areas/templestowe-lower.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/templestowe-lower.html" data-postcode="3106" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Templestowe Lower</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3106</span>
                 </div>
             </a>
-            <a href="/service-areas/vermont.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/vermont.html" data-postcode="3133" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Vermont</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3133</span>
                 </div>
             </a>
-            <a href="/service-areas/vermont-south.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/vermont-south.html" data-postcode="3133" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Vermont South</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3133</span>
                 </div>
             </a>
-            <a href="/service-areas/wantirna.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/wantirna.html" data-postcode="3152" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Wantirna</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3152</span>
                 </div>
             </a>
-            <a href="/service-areas/wantirna-south.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/wantirna-south.html" data-postcode="3152" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Wantirna South</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3152</span>
                 </div>
             </a>
-            <a href="/service-areas/wheelers-hill.html" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+            <a href="/service-areas/wheelers-hill.html" data-postcode="3150" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700 group-hover:text-black">Wheelers Hill</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3150</span>
                 </div>
             </a>
         </div>
@@ -347,5 +331,36 @@
 
     <script src="/header.js"></script>
     <script src="/footer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('areaSearch');
+            const suburbCards = document.querySelectorAll('.suburb-card');
+            const searchStats = document.getElementById('searchStats');
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                let visibleCount = 0;
+
+                suburbCards.forEach(card => {
+                    const suburbName = card.querySelector('span').textContent.toLowerCase();
+                    const postcode = card.getAttribute('data-postcode');
+                    
+                    if (suburbName.includes(query) || postcode.includes(query)) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (query === "") {
+                    searchStats.textContent = "";
+                } else {
+                    searchStats.textContent = `Found ${visibleCount} area(s)`;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
