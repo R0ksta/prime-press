@@ -97,6 +97,21 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         
+        /* Skeleton Shimmer Animation */
+        .skeleton {
+            background: #f6f7f8;
+            background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+            background-repeat: no-repeat;
+            background-size: 800px 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -400px 0; }
+            100% { background-position: 400px 0; }
+        }
+        #global-header { min-height: 80px; }
+        #global-footer { min-height: 300px; }
+
         /* Loading Spinner for Form */
         .spinner {
             border: 3px solid rgba(255, 255, 255, 0.3);
@@ -132,6 +147,13 @@
             border: 2px solid black !important;
         }
 
+        /* Success Animation for Add Button */
+        #add-item-btn.btn-success {
+            background-color: #16a34a !important; /* Tailwind green-600 */
+            border-color: #16a34a !important;
+            color: white !important;
+        }
+
         /* Hero Specific Buttons */
         .hero-btn {
             border: 2px solid white !important;
@@ -148,7 +170,20 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-537M57GV"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
-    <div id="global-header"></div>
+    <div id="global-header" class="sticky top-0 z-50 w-full bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-md skeleton"></div>
+                <div class="w-32 h-6 rounded skeleton"></div>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <div class="w-16 h-4 rounded skeleton"></div>
+                <div class="w-16 h-4 rounded skeleton"></div>
+                <div class="w-16 h-4 rounded skeleton"></div>
+                <div class="w-24 h-10 rounded-md skeleton"></div>
+            </div>
+        </div>
+    </div>
 
     <section class="bg-black text-white py-20 md:py-32 px-4 sm:px-6 lg:px-8 text-center">
         <div class="max-w-4xl mx-auto">
@@ -373,7 +408,24 @@
         </div>
     </section>
 
-    <div id="global-footer"></div>
+    <div id="global-footer" class="bg-white border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div class="space-y-4">
+                    <div class="w-24 h-6 rounded skeleton"></div>
+                    <div class="w-full h-12 rounded skeleton"></div>
+                </div>
+                <div class="space-y-4">
+                    <div class="w-24 h-6 rounded skeleton"></div>
+                    <div class="w-full h-12 rounded skeleton"></div>
+                </div>
+                <div class="space-y-4">
+                    <div class="w-24 h-6 rounded skeleton"></div>
+                    <div class="w-full h-12 rounded skeleton"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="/header.js"></script>
     <script src="/footer.js"></script>
@@ -400,6 +452,18 @@
             
             selectedItems.push({ name, price, qty });
             updateEstimator();
+
+            // Success Animation Logic
+            const originalText = addItemBtn.innerText;
+            addItemBtn.innerText = 'Added ✓';
+            addItemBtn.classList.add('btn-success');
+            addItemBtn.disabled = true;
+
+            setTimeout(() => {
+                addItemBtn.innerText = originalText;
+                addItemBtn.classList.remove('btn-success');
+                addItemBtn.disabled = false;
+            }, 800);
         });
 
         function updateEstimator() {
@@ -413,8 +477,14 @@
                 breakdownText += `${item.name} x ${item.qty} ($${itemTotal.toFixed(2)}), `;
 
                 const li = document.createElement('li');
-                li.className = 'flex justify-between py-2 px-4';
-                li.innerHTML = `<span>${item.name} x ${item.qty}</span> <button type="button" class="text-red-500 font-bold ml-2" onclick="removeItem(${index})">×</button>`;
+                li.className = 'flex justify-between items-center py-2 px-4';
+                li.innerHTML = `
+                    <span>${item.name} x ${item.qty}</span> 
+                    <button type="button" 
+                            class="flex items-center justify-center w-6 h-6 bg-red-100 text-red-600 rounded-md hover:bg-red-600 hover:text-white transition-all font-bold text-lg leading-none pb-0.5" 
+                            onclick="removeItem(${index})">
+                        ×
+                    </button>`;
                 estimatorList.appendChild(li);
             });
 
