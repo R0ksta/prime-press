@@ -82,8 +82,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
         
-        #mobile-menu { display: none; }
-        #mobile-menu.active { display: block; }
+
 
         /* --- Global Button Hover Inversion --- */
         .btn-primary {
@@ -231,16 +230,6 @@
     <script src="/header.js"></script>
     <script src="/footer.js"></script>
 
-    <script>
 
-
-        // Close menu on link click (useful for one-page navigation)
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>
