@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. SELECT THE CONTAINER AND FORCE STICKY
     const globalHeader = document.getElementById('global-header');
     if (globalHeader) {
-        // Ensure the container maintains its sticky position during and after injection
         globalHeader.classList.add('sticky', 'top-0', 'z-50', 'w-full', 'bg-white');
     }
 
@@ -45,7 +44,9 @@ document.addEventListener("DOMContentLoaded", function() {
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                     </a>
                     <button id="menu-toggle" class="text-black focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menu-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -68,32 +69,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuPath = document.getElementById('menu-path');
     
     if(menuToggle && mobileMenu) {
-        let isMenuOpen = false;
+        // Function to explicitly close menu
+        const closeMenu = () => {
+            mobileMenu.classList.add('hidden');
+            menuPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7'); // Reset to hamburger icon
+        };
+
+        // Function to explicitly open menu
+        const openMenu = () => {
+            mobileMenu.classList.remove('hidden');
+            menuPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Change to "X" icon
+        };
 
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('hidden');
-            } else {
-                mobileMenu.classList.add('hidden');
-            }
+            const isHidden = mobileMenu.classList.contains('hidden');
+            isHidden ? openMenu() : closeMenu();
         });
 
+        // Track scroll to close menu
+        let lastScrollY = window.scrollY;
         window.addEventListener('scroll', () => {
-            if (isMenuOpen) {
-                isMenuOpen = false;
-                mobileMenu.classList.add('hidden');
+            const currentScrollY = window.scrollY;
+            // Only close if the menu is visible AND the user has actually moved the page (10px threshold)
+            if (!mobileMenu.classList.contains('hidden') && Math.abs(currentScrollY - lastScrollY) > 10) {
+                closeMenu();
             }
+            lastScrollY = currentScrollY;
         }, { passive: true });
 
+        // Close when clicking links
         mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                isMenuOpen = false;
-                mobileMenu.classList.add('hidden');
-            });
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!globalHeader.contains(e.target)) {
+                closeMenu();
+            }
         });
     }
 });
