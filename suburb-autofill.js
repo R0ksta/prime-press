@@ -1,0 +1,67 @@
+(function() {
+    const suburbMap = {
+        "ashburton": { pc: "3147", fee: "$25.00" },
+        "ashwood": { pc: "3147", fee: "$20.00" },
+        "balwyn": { pc: "3103", fee: "$20.00" },
+        "balwyn-north": { pc: "3103", fee: "$20.00" },
+        "bayswater": { pc: "3153", fee: "$25.00" },
+        "blackburn-north": { pc: "3130", fee: "$10.00" },
+        "blackburn-south": { pc: "3130", fee: "$10.00" },
+        "box-hill": { pc: "3128", fee: "$15.00" },
+        "box-hill-north": { pc: "3128", fee: "$10.00" },
+        "box-hill-south": { pc: "3128", fee: "$15.00" },
+        "bulleen": { pc: "3105", fee: "$25.00" },
+        "burwood": { pc: "3125", fee: "$20.00" },
+        "burwood-east": { pc: "3125", fee: "$15.00" },
+        "camberwell": { pc: "3124", fee: "$25.00" },
+        "canterbury": { pc: "3126", fee: "$20.00" },
+        "chadstone": { pc: "3148", fee: "$25.00" },
+        "doncaster": { pc: "3108", fee: "$20.00" },
+        "doncaster-east": { pc: "3108", fee: "$15.00" },
+        "donvale": { pc: "3111", fee: "$15.00" },
+        "forest-hill": { pc: "3131", fee: "$10.00" },
+        "glen-waverley": { pc: "3150", fee: "$20.00" },
+        "hawthorn-east": { pc: "3123", fee: "$25.00" },
+        "heathmont": { pc: "3135", fee: "$20.00" },
+        "mitcham": { pc: "3132", fee: "$15.00" },
+        "mont-albert": { pc: "3127", fee: "$15.00" },
+        "mont-albert-north": { pc: "3127", fee: "$15.00" },
+        "mount-waverley": { pc: "3149", fee: "$20.00" },
+        "nunawading": { pc: "3131", fee: "$10.00" },
+        "ringwood": { pc: "3134", fee: "$20.00" },
+        "ringwood-east": { pc: "3134", fee: "$20.00" },
+        "ringwood-north": { pc: "3134", fee: "$25.00" },
+        "surrey-hills": { pc: "3127", fee: "$15.00" },
+        "syndal": { pc: "3150", fee: "$20.00" },
+        "templestowe": { pc: "3106", fee: "$25.00" },
+        "templestowe-lower": { pc: "3106", fee: "$20.00" },
+        "vermont": { pc: "3133", fee: "$15.00" },
+        "vermont-south": { pc: "3133", fee: "$15.00" },
+        "wantirna": { pc: "3152", fee: "$20.00" },
+        "wantirna-south": { pc: "3152", fee: "$25.00" },
+        "wheelers-hill": { pc: "3150", fee: "$25.00" }
+    };
+
+    function initAutofill() {
+        const path = window.location.pathname.split("/").pop().replace(".html", "").toLowerCase();
+        const data = suburbMap[path] || { pc: "3130", fee: "$0.00" };
+        
+        const displayName = path.split('-').map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+
+        document.querySelectorAll('.dynamic-suburb').forEach(el => el.textContent = displayName);
+        document.querySelectorAll('.dynamic-postcode').forEach(el => el.textContent = data.pc);
+        document.querySelectorAll('.dynamic-delivery').forEach(el => el.textContent = data.fee);
+        
+        if (typeof loadHowItWorks === 'function') {
+            loadHowItWorks(displayName);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAutofill);
+    } else {
+        initAutofill();
+    }
+})();

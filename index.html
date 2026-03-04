@@ -93,11 +93,9 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom Font */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         
-        /* Skeleton Shimmer Animation */
         .skeleton {
             background: #f6f7f8;
             background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
@@ -112,7 +110,6 @@
         #global-header { min-height: 80px; }
         #global-footer { min-height: 300px; }
 
-        /* Loading Spinner for Form */
         .spinner {
             border: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
@@ -129,32 +126,23 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* --- Global Button Hover Inversion --- */
-        button, 
-        a[href="#book-now"], 
-        #add-item-btn, 
-        #submit-btn {
+        button, a[href="#book-now"], #add-item-btn, #submit-btn {
             border: 2px solid white !important;
             transition: all 0.3s ease-in-out !important;
         }
 
-        button:hover, 
-        a[href="#book-now"]:hover, 
-        #add-item-btn:hover, 
-        #submit-btn:hover {
+        button:hover, a[href="#book-now"]:hover, #add-item-btn:hover, #submit-btn:hover {
             background-color: white !important;
             color: black !important;
             border: 2px solid black !important;
         }
 
-        /* Success Animation for Add Button */
         #add-item-btn.btn-success {
-            background-color: #16a34a !important; /* Tailwind green-600 */
-            border-color: #16a34a !important;
+            background-color: #000 !important;
+            border-color: #000 !important;
             color: white !important;
         }
 
-        /* Hero Specific Buttons */
         .hero-btn {
             border: 2px solid white !important;
             transition: all 0.3s ease-in-out !important;
@@ -165,8 +153,6 @@
             color: black !important;
         }
 
-        /* CUSTOM FORM ICONS */
-        /* Custom Chevron for Select */
         select {
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='black'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
@@ -176,38 +162,16 @@
             padding-right: 2.5rem !important;
         }
 
-        /* Custom Calendar Icon for Date Inputs */
-        input[type="date"] {
-            position: relative;
-        }
+        input[type="date"] { position: relative; }
         input[type="date"]::-webkit-calendar-picker-indicator {
             background: transparent;
-            bottom: 0;
-            color: transparent;
-            cursor: pointer;
-            height: auto;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: auto;
-            z-index: 10;
+            bottom: 0; color: transparent; cursor: pointer; height: auto; left: 0; position: absolute; right: 0; top: 0; width: auto; z-index: 10;
         }
-        .date-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
+        .date-container { position: relative; display: flex; align-items: center; }
         .date-container::after {
             content: "";
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='black'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'%3E%3C/path%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-size: 1.25rem;
-            width: 1.25rem;
-            height: 1.25rem;
-            position: absolute;
-            right: 0.75rem;
-            pointer-events: none;
+            background-repeat: no-repeat; background-size: 1.25rem; width: 1.25rem; height: 1.25rem; position: absolute; right: 0.75rem; pointer-events: none;
         }
     </style>
 </head>
@@ -234,7 +198,7 @@
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 uppercase leading-tight">Hate Ironing?<br>Save Your Time!</h2>
             <p class="text-lg md:text-2xl text-gray-300 mb-10 font-light leading-relaxed">
-                Let us take the pain away by doing your ironing. Spend more time doing what you enjoy. <br class="hidden md:block">Drop off your garments at our Blackburn location, and we'll press them to perfection.
+                Let us take the pain away by doing your ironing. Spend more time doing what you enjoy. <br class="hidden md:block">Drop off your garments at our Blackburn location, or book a local pick-up.
             </p>
             <div class="flex justify-center">
                 <a href="#pricing" class="hero-btn inline-block border-2 border-white text-white text-lg font-bold px-12 py-4 rounded-md w-full md:w-auto uppercase tracking-wide">
@@ -261,7 +225,7 @@
                 </div>
                 <div class="px-4">
                     <h4 class="text-xl font-bold mb-3 uppercase">Local Convenience</h4>
-                    <p class="text-gray-600">Conveniently located in Blackburn, simply drop off your items and pick them up when they are crisp, fresh, and ready to wear.</p>
+                    <p class="text-gray-600">Conveniently located in Blackburn, simply drop off your items or request a pick-up (based on team availability).</p>
                 </div>
             </div>
         </div>
@@ -277,18 +241,17 @@
                 <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 text-center">
                     <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">1</div>
                     <h4 class="text-lg font-bold mb-2">Book Online</h4>
-                    <p class="text-gray-600">Fill out our booking form below to let us know you are coming and get a quick price estimate.</p>
+                    <p class="text-gray-600">Fill out our booking form below to choose drop-off or pick-up and get a quick price estimate.</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 text-center">
                     <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">2</div>
-                    <h4 class="text-lg font-bold mb-2">Drop Off</h4>
-                    <p class="text-gray-600">Address to be provided on confirmation.</p>
-                    <p class="text-gray-600">Bring your clean, dry clothes to our location in Blackburn, VIC 3130.</p>
+                    <h4 class="text-lg font-bold mb-2">Garment Collection</h4>
+                    <p class="text-gray-600">Drop off in Blackburn or leave out for our team (subject to availability).</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 text-center">
                     <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">3</div>
-                    <h4 class="text-lg font-bold mb-2">Pick Up</h4>
-                    <p class="text-gray-600">We will notify you the moment your clothes are perfectly ironed, on hangers or folded, ready for collection.</p>
+                    <h4 class="text-lg font-bold mb-2">Ready to Wear</h4>
+                    <p class="text-gray-600">We will notify you when your clothes are ironed and ready for return or pick-up.</p>
                 </div>
             </div>
         </div>
@@ -299,7 +262,7 @@
             <div class="text-center mb-12">
                 <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Ironing Price List</h3>
                 <div class="w-24 h-1 bg-black mx-auto mt-4 mb-6"></div>
-                <p class="text-gray-600 text-sm">Prices are per item. Minimum charge for ironing is $30.00. <br><strong>Drop-off and Pick-up only at our Blackburn location.</strong></p>
+                <p class="text-gray-600 text-sm">Prices are per item. Minimum charge for ironing is $30.00. <br><strong>Drop-off/Pick-up available in Blackburn and surrounding areas (subject to team availability).</strong></p>
             </div>
 
             <div class="bg-white border border-gray-200 rounded-lg overflow-hidden mb-12">
@@ -334,7 +297,7 @@
 
             <div class="flex flex-col md:flex-row justify-center gap-4 bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm">
                 <a href="#book-now" class="bg-black text-white text-center text-lg font-bold px-10 py-4 rounded-md w-full md:w-auto uppercase tracking-wide">
-                    Book Your Drop-Off
+                    Book Your Service
                 </a>
                 <a href="tel:0422430990" class="border-2 border-black text-black text-center text-lg font-bold px-10 py-4 rounded-md w-full md:w-auto uppercase tracking-wide hover:bg-black hover:text-white transition-all">
                     Call 0422 430 990
@@ -346,9 +309,8 @@
     <section id="book-now" class="py-20 bg-black text-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8">
-                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Book Your Service</h3>
-                <p class="mt-4 text-gray-400">Let us know you are coming by filling out the form below.</p>
-                <p class="mt-4 text-white font-semibold text-xs md:text-sm uppercase tracking-wide px-4">Please do not drop off or pick up items until an email confirmation has been provided.</p>
+                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Request a Booking</h3>
+                <p class="mt-4 text-gray-400">Please do not drop off or leave items for collection (based on availability) until confirmation is provided via email. Call for up-to-date availability information.</p>
             </div>
             
             <form id="booking-form" action="https://api.staticforms.xyz/submit" method="POST" class="bg-white text-black p-6 md:p-8 rounded-lg shadow-xl mx-2">
@@ -358,11 +320,14 @@
                 <input type="hidden" name="redirectTo" value="https://primepress.com.au/success.html">
                 <input type="text" name="honeypot" style="display:none">
                 
+                <input type="hidden" name="ironing_total" id="ironing_total_input" value="$0.00" />
+                <input type="hidden" name="delivery_fee" id="delivery_fee_input" value="$0.00" />
+                <input type="hidden" name="delivery_suburb" id="delivery_suburb_input" value="N/A" />
                 <input type="hidden" name="estimated_cost" id="estimated_cost_input" value="$0.00" />
                 <input type="hidden" name="estimator_breakdown" id="estimator_breakdown_input" value="No items estimated." />
                 
                 <div class="bg-gray-50 p-4 md:p-6 rounded-lg mb-8 border border-gray-200">
-                    <h4 class="text-lg font-bold mb-4 uppercase text-center md:text-left">Quick Cost Estimator</h4>
+                    <h4 class="text-lg font-bold mb-4 uppercase text-center md:text-left">1. Ironing Items</h4>
                     
                     <div class="flex flex-col md:flex-row gap-4 mb-4">
                         <div class="flex-grow">
@@ -374,15 +339,12 @@
                                 <option value="3.30" data-name="Jeans">Jeans ($3.30)</option>
                                 <option value="2.90" data-name="Jumper / Pyjama / Tracksuit">Jumper / Pyjama / Tracksuit ($2.90)</option>
                                 <option value="2.00" data-name="Shorts">Shorts (from $2.00)</option>
-                                <option value="2.80" data-name="Shorts">Skirt (from $2.80)</option>
+                                <option value="2.80" data-name="Skirt">Skirt (from $2.80)</option>
                                 <option value="4.00" data-name="Dress">Dress (from $4.00)</option>
                                 <option value="6.00" data-name="Jacket">Jacket ($6.00)</option>
-                                <option value="1.80" data-name="Kids (Sizes 0-4)">Kids Sizes 0-4 (from $1.80)</option>
-                                <option value="2.80" data-name="Kids (Sizes 5-12)">Kids Sizes 5-12 (from $2.80)</option>
                                 <option value="3.30" data-name="School Uniforms">School Uniforms ($3.30)</option>
                                 <option value="1.00" data-name="Hanky / T-Towel">Hanky / T-Towel ($1.00)</option>
                                 <option value="1.80" data-name="Aprons / Pillow Cases">Aprons / Pillow Cases ($1.80)</option>
-                                <option value="4.00" data-name="Table Cloths">Table Cloths (from $4.00)</option>
                                 <option value="7.00" data-name="Bed Sheet">Bed Sheet (from $7.00)</option>
                                 <option value="10.00" data-name="Doona Cover">Doona Cover (from $10.00)</option>
                             </select>
@@ -397,13 +359,35 @@
                     </div>
 
                     <ul id="estimator-list" class="mb-4 text-sm divide-y divide-gray-200 bg-white border border-gray-200 rounded empty:hidden"></ul>
-
-                    <div class="flex justify-between items-center border-t border-gray-300 pt-4 mt-2">
-                        <span class="font-semibold text-sm text-gray-600">Estimated Total:</span>
-                        <span class="text-xl md:text-2xl font-bold text-black" id="estimate-display">$0.00</span>
+                    
+                    <div class="flex justify-between items-center text-sm mb-4">
+                        <span class="text-gray-600">Ironing Total:</span>
+                        <span class="font-bold" id="ironing-subtotal-display">$0.00</span>
                     </div>
-                    <p id="minimum-warning" class="text-xs text-red-500 mt-2 font-bold hidden">Minimum booking charge of $30.00 required to submit.</p>
-                    <p class="text-xs text-gray-500 mt-2">We accept payment via Cash and Card (a 1.6% surcharge applies to card payments).</p>
+                    <p id="minimum-warning" class="text-xs text-red-500 font-bold hidden mb-4">Minimum ironing charge of $30.00 required.</p>
+
+                    <h4 class="text-lg font-bold mb-4 uppercase border-t border-gray-200 pt-4">2. Service Method</h4>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="service_type" value="dropoff" checked class="hidden peer">
+                            <div class="text-center p-3 border border-gray-300 rounded peer-checked:bg-black peer-checked:text-white peer-checked:border-black transition-all text-sm font-bold">Drop-off (Free)</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="service_type" value="delivery" class="hidden peer">
+                            <div class="text-center p-3 border border-gray-300 rounded peer-checked:bg-black peer-checked:text-white peer-checked:border-black transition-all text-sm font-bold">Pick-up & Delivery</div>
+                        </label>
+                    </div>
+
+                    <div id="delivery-options" class="hidden">
+                        <label class="block text-xs font-semibold mb-1 text-gray-600">Enter Postcode (e.g., 3130)</label>
+                        <input type="text" id="postcode-input" maxlength="4" placeholder="3130" class="w-full h-11 px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none mb-2">
+                        <div id="suburb-info" class="text-xs font-bold text-black"></div>
+                    </div>
+
+                    <div class="flex justify-between items-center border-t border-gray-300 pt-4 mt-6">
+                        <span class="font-bold text-gray-600 uppercase tracking-tighter">Total Estimated Cost:</span>
+                        <span class="text-xl md:text-2xl font-bold text-black" id="total-display">$0.00</span>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -422,7 +406,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-semibold mb-2">Expected Drop-Off Date & Time *</label>
+                    <label class="block text-sm font-semibold mb-2">Expected Date & Time *</label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="date-container">
                             <input type="date" id="dropoff_date" name="dropoff_date" required 
@@ -443,11 +427,9 @@
                     <textarea id="notes" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black" placeholder="E.g., Please fold shirts instead of hanging."></textarea>
                 </div>
 
-                <button type="submit" id="submit-btn" class="w-full bg-black text-white font-bold py-4 rounded-md transition-colors uppercase tracking-wide text-sm md:text-base">
+                <button type="submit" id="submit-btn" class="w-full bg-black text-white font-bold py-4 rounded-md transition-colors uppercase tracking-wide text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed">
                     <span id="btn-text">Submit Booking Request</span>
                 </button>
-                
-                <div id="form-status" class="mt-4 text-center text-sm font-semibold hidden"></div>
             </form>
         </div>
     </section>
@@ -475,120 +457,177 @@
     <script src="/footer.js"></script>
 
     <script>
-        // Booking Logic & Calculator
-        const itemSelect = document.getElementById('item-select');
-        const itemQty = document.getElementById('item-qty');
-        const addItemBtn = document.getElementById('add-item-btn');
-        const estimatorList = document.getElementById('estimator-list');
-        const estimateDisplay = document.getElementById('estimate-display');
-        const minWarning = document.getElementById('minimum-warning');
-        const costInput = document.getElementById('estimated_cost_input');
-        const breakdownInput = document.getElementById('estimator_breakdown_input');
-        const submitBtn = document.getElementById('submit-btn');
-        const bookingForm = document.getElementById('booking-form');
+    const suburbData = {
+        "3130": { name: "Blackburn / Laburnum", fee: 10 },
+        "3128": { name: "Box Hill", fee: 10 },
+        "3131": { name: "Forest Hill / Nunawading", fee: 10 },
+        "3125": { name: "Burwood / Burwood East", fee: 15 },
+        "3108": { name: "Doncaster East", fee: 15 },
+        "3132": { name: "Mitcham", fee: 15 },
+        "3127": { name: "Surrey Hills / Mont Albert", fee: 15 },
+        "3133": { name: "Vermont", fee: 15 },
+        "3111": { name: "Donvale", fee: 15 },
+        "3150": { name: "Glen Waverley / Syndal", fee: 20 },
+        "3103": { name: "Balwyn", fee: 20 },
+        "3126": { name: "Canterbury", fee: 20 },
+        "3135": { name: "Heathmont", fee: 20 },
+        "3149": { name: "Mt Waverley", fee: 20 },
+        "3134": { name: "Ringwood", fee: 20 },
+        "3152": { name: "Wantirna", fee: 20 },
+        "3147": { name: "Ashwood / Ashburton", fee: 20 },
+        "3106": { name: "Templestowe", fee: 20 }
+    };
 
-        let selectedItems = [];
+    const itemSelect = document.getElementById('item-select');
+    const itemQty = document.getElementById('item-qty');
+    const addItemBtn = document.getElementById('add-item-btn');
+    const estimatorList = document.getElementById('estimator-list');
+    const ironingSubDisplay = document.getElementById('ironing-subtotal-display');
+    const totalDisplay = document.getElementById('total-display');
+    const minWarning = document.getElementById('minimum-warning');
+    const submitBtn = document.getElementById('submit-btn');
+    const bookingForm = document.getElementById('booking-form');
+    
+    const postcodeInp = document.getElementById('postcode-input');
+    const suburbInfo = document.getElementById('suburb-info');
+    const deliverySection = document.getElementById('delivery-options');
 
-        addItemBtn.addEventListener('click', () => {
-            const price = parseFloat(itemSelect.value);
-            const name = itemSelect.options[itemSelect.selectedIndex].getAttribute('data-name');
-            const qty = parseInt(itemQty.value);
-            
-            selectedItems.push({ name, price, qty });
-            updateEstimator();
+    let selectedItems = [];
+    let deliveryFee = 0;
+    let activeSuburb = "N/A";
 
-            // Success Animation Logic
-            const originalText = addItemBtn.innerText;
-            addItemBtn.innerText = 'Added ✓';
-            addItemBtn.classList.add('btn-success');
-            addItemBtn.disabled = true;
-
-            setTimeout(() => {
-                addItemBtn.innerText = originalText;
-                addItemBtn.classList.remove('btn-success');
-                addItemBtn.disabled = false;
-            }, 800);
-        });
-
-        function updateEstimator() {
-            estimatorList.innerHTML = '';
-            let total = 0;
-            let breakdownText = '';
-
-            selectedItems.forEach((item, index) => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
-                breakdownText += `${item.name} x ${item.qty} ($${itemTotal.toFixed(2)}), `;
-
-                const li = document.createElement('li');
-                li.className = 'flex justify-between items-center py-2 px-4';
-                li.innerHTML = `
-                    <span>${item.name} x ${item.qty}</span> 
-                    <button type="button" 
-                            class="flex items-center justify-center w-6 h-6 bg-red-100 text-red-600 rounded-md hover:bg-red-600 hover:text-white transition-all font-bold text-lg leading-none pb-0.5" 
-                            onclick="removeItem(${index})">
-                        ×
-                    </button>`;
-                estimatorList.appendChild(li);
-            });
-
-            estimateDisplay.innerText = `$${total.toFixed(2)}`;
-            costInput.value = `$${total.toFixed(2)}`;
-            breakdownInput.value = breakdownText;
-
-            if (total < 30 && total > 0) {
-                minWarning.classList.remove('hidden');
-                submitBtn.disabled = true;
-                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    document.querySelectorAll('input[name="service_type"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if(e.target.value === 'delivery') {
+                deliverySection.classList.remove('hidden');
+                postcodeInp.required = true;
+                checkPostcode(postcodeInp.value);
             } else {
-                minWarning.classList.add('hidden');
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                deliverySection.classList.add('hidden');
+                postcodeInp.required = false;
+                deliveryFee = 0;
+                activeSuburb = "N/A";
+                updateEstimator();
             }
+        });
+    });
+
+    addItemBtn.addEventListener('click', () => {
+        const price = parseFloat(itemSelect.value);
+        const name = itemSelect.options[itemSelect.selectedIndex].getAttribute('data-name');
+        const qty = parseInt(itemQty.value);
+        
+        selectedItems.push({ name, price, qty });
+        updateEstimator();
+
+        const originalText = addItemBtn.innerText;
+        addItemBtn.innerText = 'Added ✓';
+        addItemBtn.classList.add('btn-success');
+        addItemBtn.disabled = true;
+
+        setTimeout(() => {
+            addItemBtn.innerText = originalText;
+            addItemBtn.classList.remove('btn-success');
+            addItemBtn.disabled = false;
+        }, 800);
+    });
+
+    function checkPostcode(val) {
+        if(suburbData[val]) {
+            deliveryFee = suburbData[val].fee;
+            activeSuburb = suburbData[val].name;
+            suburbInfo.innerText = `Matched: ${activeSuburb} ($${deliveryFee} Fee)`;
+        } else if (val.length === 4) {
+            deliveryFee = 25;
+            activeSuburb = "Extended Area";
+            suburbInfo.innerText = `Extended Area ($25.00 Fee)`;
+        } else {
+            deliveryFee = 0;
+            activeSuburb = "N/A";
+            suburbInfo.innerText = "Enter postcode for delivery fee";
         }
+        updateEstimator();
+    }
 
-        window.removeItem = (index) => {
-            selectedItems.splice(index, 1);
-            updateEstimator();
-        };
+    postcodeInp.addEventListener('input', (e) => {
+        checkPostcode(e.target.value);
+    });
 
-        // Drop-off Time Logic based on date
-        const dateInput = document.getElementById('dropoff_date');
-        const timeSelect = document.getElementById('dropoff_time_val');
-        const hoursHint = document.getElementById('hours-hint');
+    function updateEstimator() {
+        estimatorList.innerHTML = '';
+        let ironingTotal = 0;
+        let breakdownText = '';
 
-        dateInput.addEventListener('change', (e) => {
-            const date = new Date(e.target.value);
-            const day = date.getUTCDay(); // 0=Sun, 6=Sat
-            timeSelect.innerHTML = '';
-            
-            let hours = [];
-            if (day >= 1 && day <= 5) { // Mon-Fri
-                hours = ["17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30"];
-                hoursHint.innerText = "Available Mon-Fri: 5 PM – 9 PM";
-            } else { // Sat-Sun
-                hours = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"];
-                hoursHint.innerText = "Available Sat-Sun: 9 AM – 5 PM";
-            }
+        selectedItems.forEach((item, index) => {
+            const itemTotal = item.price * item.qty;
+            ironingTotal += itemTotal;
+            breakdownText += `${item.name} x ${item.qty} ($${itemTotal.toFixed(2)}), `;
 
-            hours.forEach(h => {
-                const opt = document.createElement('option');
-                opt.value = h;
-                opt.innerText = h;
-                timeSelect.appendChild(opt);
-            });
+            const li = document.createElement('li');
+            li.className = 'flex justify-between items-center py-2 px-4';
+            li.innerHTML = `
+                <span>${item.name} x ${item.qty}</span> 
+                <button type="button" class="text-black font-bold text-lg" onclick="removeItem(${index})">×</button>`;
+            estimatorList.appendChild(li);
         });
 
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
+        ironingSubDisplay.innerText = `$${ironingTotal.toFixed(2)}`;
+        
+        const grandTotal = ironingTotal + deliveryFee;
+        totalDisplay.innerText = `$${grandTotal.toFixed(2)}`;
 
-        // Double-click Prevention & Spinner Logic
-        bookingForm.addEventListener('submit', function() {
+        document.getElementById('ironing_total_input').value = `$${ironingTotal.toFixed(2)}`;
+        document.getElementById('delivery_fee_input').value = `$${deliveryFee.toFixed(2)}`;
+        document.getElementById('delivery_suburb_input').value = activeSuburb;
+        document.getElementById('estimated_cost_input').value = `$${grandTotal.toFixed(2)}`;
+        document.getElementById('estimator_breakdown_input').value = breakdownText || "No items.";
+
+        const ironingMeetsMin = ironingTotal >= 30;
+        const serviceType = document.querySelector('input[name="service_type"]:checked').value;
+        const deliveryValid = (serviceType === 'dropoff') || (serviceType === 'delivery' && postcodeInp.value.length === 4);
+
+        if (ironingTotal > 0 && !ironingMeetsMin) {
+            minWarning.classList.remove('hidden');
             submitBtn.disabled = true;
-            submitBtn.classList.add('opacity-70', 'cursor-wait');
-            const btnText = document.getElementById('btn-text');
-            btnText.innerHTML = '<span class="spinner"></span>Processing...';
+        } else {
+            minWarning.classList.add('hidden');
+            submitBtn.disabled = (ironingTotal === 0) || !deliveryValid;
+        }
+    }
+
+    window.removeItem = (index) => {
+        selectedItems.splice(index, 1);
+        updateEstimator();
+    };
+
+    const dateInput = document.getElementById('dropoff_date');
+    const timeSelect = document.getElementById('dropoff_time_val');
+    const hoursHint = document.getElementById('hours-hint');
+
+    dateInput.addEventListener('change', (e) => {
+        const date = new Date(e.target.value);
+        const day = date.getUTCDay(); 
+        timeSelect.innerHTML = '';
+        let hours = (day >= 1 && day <= 5) 
+            ? ["17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30"]
+            : ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"];
+
+        hoursHint.innerText = (day >= 1 && day <= 5) ? "Available Mon-Fri: 5 PM – 9 PM" : "Available Sat-Sun: 9 AM – 5 PM";
+
+        hours.forEach(h => {
+            const opt = document.createElement('option');
+            opt.value = h; opt.innerText = h;
+            timeSelect.appendChild(opt);
         });
+    });
+
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+
+    bookingForm.addEventListener('submit', function() {
+        submitBtn.disabled = true;
+        document.getElementById('btn-text').innerHTML = '<span class="spinner"></span>Processing...';
+    });
     </script>
 </body>
 </html>
