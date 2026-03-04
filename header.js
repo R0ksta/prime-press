@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Detect which page we are on
     const path = window.location.pathname;
-    const isHome = path === "/" || path === "/index.html" || path.endsWith("index.html");
-    const isFAQ = path.includes("faq.html");
-    const isAreas = path.includes("service-areas.html") || path.includes("/service-areas/");
-    const isPolicy = path.includes("service-policy.html");
+    
+    // Improved detection logic
+    const isHome = path === "/" || path === "/index.html" || path.endsWith("/index.html") || path === "";
+    const isFAQ = path.includes("faq");
+    const isAreas = path.includes("service-areas");
+    const isPolicy = path.includes("service-policy");
 
     // 1. SELECT THE CONTAINER AND FORCE STICKY
     const globalHeader = document.getElementById('global-header');
@@ -15,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Helper function to pick classes based on active state
     const linkClass = (isActive) => 
         isActive 
-        ? "text-black font-bold transition-colors border-b-2 border-black" 
-        : "text-gray-600 hover:text-black font-medium transition-colors";
+        ? "text-black font-bold transition-colors border-b-2 border-black pb-1" 
+        : "text-gray-600 hover:text-black font-medium transition-colors pb-1";
 
     const headerHTML = `
     <nav class="border-b border-gray-200 bg-white">
@@ -72,16 +74,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const menuPath = document.getElementById('menu-path');
     
     if(menuToggle && mobileMenu) {
-        // Function to explicitly close menu
         const closeMenu = () => {
             mobileMenu.classList.add('hidden');
-            menuPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7'); // Reset to hamburger icon
+            menuPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7'); 
         };
 
-        // Function to explicitly open menu
         const openMenu = () => {
             mobileMenu.classList.remove('hidden');
-            menuPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Change to "X" icon
+            menuPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); 
         };
 
         menuToggle.addEventListener('click', (e) => {
@@ -90,23 +90,19 @@ document.addEventListener("DOMContentLoaded", function() {
             isHidden ? openMenu() : closeMenu();
         });
 
-        // Track scroll to close menu
         let lastScrollY = window.scrollY;
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
-            // Only close if the menu is visible AND the user has actually moved the page (10px threshold)
             if (!mobileMenu.classList.contains('hidden') && Math.abs(currentScrollY - lastScrollY) > 10) {
                 closeMenu();
             }
             lastScrollY = currentScrollY;
         }, { passive: true });
 
-        // Close when clicking links
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', closeMenu);
         });
 
-        // Close when clicking outside
         document.addEventListener('click', (e) => {
             if (!globalHeader.contains(e.target)) {
                 closeMenu();
