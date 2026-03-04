@@ -43,31 +43,11 @@
     <link rel="manifest" href="/site.webmanifest?v=2">
     <link rel="shortcut icon" href="/favicon.ico?v=2">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Prime Press Ironing Services",
-      "url": "https://primepress.com.au/"
-    }
-    </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
         
-        /* --- Global Button Hover Inversion --- */
-        .btn-primary {
-            border: 2px solid black !important;
-            transition: all 0.3s ease-in-out !important;
-        }
-        .btn-primary:hover {
-            background-color: white !important;
-            color: black !important;
-            border: 2px solid black !important;
-        }
-
         .btn-outline {
             border: 2px solid white !important;
             transition: all 0.3s ease-in-out !important;
@@ -78,14 +58,13 @@
             border: 2px solid black !important;
         }
 
-        /* Accordion transition logic */
         .faq-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
         .faq-item.active .faq-content {
-            max-height: 500px;
+            max-height: 1200px; /* Adjusted to fit the larger table */
         }
         .faq-item.active .faq-icon {
             transform: rotate(180deg);
@@ -99,58 +78,18 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How long does it take to get my ironing back?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our standard processing time for ironing is 1-2 business days, depending on the volume of the order and current demand."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need to provide my own hangers?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. If you require your items to be returned on hangers, please provide them at drop-off. Otherwise, items will be returned neatly folded."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "What areas do you serve?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We are based in Blackburn, VIC 3130, and primarily serve the local community and surrounding suburbs in East Melbourne. We will look to expand in the near future."
+            "text": "We are based in Blackburn, VIC 3130, and primarily serve the local community and surrounding suburbs within East Melbourne."
           }
         },
         {
           "@type": "Question",
-          "name": "What are your operating hours?",
+          "name": "Do you offer delivery or pick-up services?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our operating hours are Mon-Fri: 17:00 – 21:00 and Sat-Sun: 09:00 – 17:00. All drop-offs and pickups are strictly by appointment."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How should I prepare my clothes?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Garments must be clean and fully dry. Please ensure all pockets are emptied of coins or sharp objects before drop-off."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is there a minimum order amount?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, a minimum charge of $30.00 applies to all professional ironing orders."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What payment methods do you accept?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We accept payment via Cash and Card (a 1.6% surcharge applies to card payments). Payment must be settled at the time of collection."
+            "text": "We can provide pick-up and delivery services subject to availability. Fees are calculated based on distance from Blackburn: 0-4km is $10, 4-8km is $15, 8-12km is $20, and 12km+ is $25+."
           }
         },
         {
@@ -159,6 +98,22 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No, Prime Press strictly specializes in professional ironing only at the moment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are your operating hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Monday – Friday: 17:00 – 21:00, Saturday – Sunday: 09:00 – 17:00. All drop-offs and pickups are strictly by appointment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I need your services urgently or after-hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While weekday daytime availability is limited, we strive to accommodate urgent requests for a flat surcharge of $20.00 plus per-item charges."
           }
         }
       ]
@@ -188,7 +143,7 @@
                     </button>
                     <div class="faq-content">
                         <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50">
-                            We are based in <strong>Blackburn, VIC 3130</strong>, and primarily serve the local community and surrounding suburbs within East Melbourne. We will look to expand in the near future.
+                            We are based in <strong>Blackburn, VIC 3130</strong>, and primarily serve the local community and surrounding suburbs within East Melbourne.
                         </div>
                     </div>
                 </div>
@@ -209,12 +164,59 @@
 
                 <div class="faq-item border border-gray-200 rounded-xl mb-4 overflow-hidden">
                     <button class="faq-trigger w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <span class="text-lg font-bold">Do you offer delivery or pick-up services?</span>
+                        <svg class="faq-icon w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50">
+                            <p class="mb-4">We can provide pick-up and delivery services <strong>subject to availability</strong>. Fees are based on driving distance from our Blackburn location:</p>
+                            
+                            <div class="overflow-x-auto border border-gray-200 rounded-lg">
+                                <table class="w-full text-left text-sm min-w-[500px]">
+                                    <thead class="bg-gray-50 border-b border-gray-200 text-gray-700">
+                                        <tr>
+                                            <th class="px-4 py-3 font-bold uppercase tracking-wider">Distance</th>
+                                            <th class="px-4 py-3 font-bold uppercase tracking-wider text-right">Fee (AUD)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 bg-white">
+                                        <tr>
+                                            <td class="px-4 py-3 text-gray-600">0 — 4 km</td>
+                                            <td class="px-4 py-3 text-right font-bold">$10.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3 text-gray-600">4 — 8 km</td>
+                                            <td class="px-4 py-3 text-right font-bold">$15.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3 text-gray-600">8 — 12 km</td>
+                                            <td class="px-4 py-3 text-right font-bold">$20.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3 text-gray-600">12 km+</td>
+                                            <td class="px-4 py-3 text-right font-bold">$25.00+</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="mt-4">
+                                <a href="/service-areas.html" class="text-black font-bold underline hover:text-gray-600 transition-colors">
+                                    View our full Service Area list for more information about your suburb &rarr;
+                                </a>
+                            </p>
+                            <p class="mt-2 text-xs text-gray-500 italic">* Delivery and pick-up fees are payable at the time of pick-up.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-200 rounded-xl mb-4 overflow-hidden">
+                    <button class="faq-trigger w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
                         <span class="text-lg font-bold">Do you offer any other laundry services (i.e. washing, dry cleaning)?</span>
                         <svg class="faq-icon w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div class="faq-content">
                         <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50">
-                            No, Prime Press strictly specializes in <strong>professional ironing only at the moment.</strong>. 
+                            No, Prime Press strictly specializes in <strong>professional ironing only at the moment.</strong>
                         </div>
                     </div>
                 </div>
@@ -225,24 +227,24 @@
                 
                 <div class="faq-item border border-gray-200 rounded-xl mb-4 overflow-hidden">
                     <button class="faq-trigger w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-                        <span class="text-lg font-bold">Do I need to provide my own hangers?</span>
+                        <span class="text-lg font-bold">What if I need your services urgently or after-hours?</span>
                         <svg class="faq-icon w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div class="faq-content">
                         <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50">
-                            Yes. If you require your items to be returned on hangers, please provide them at drop-off. Otherwise, items will be returned neatly folded in protective packaging.
+                            While weekday daytime availability is limited, we strive to accommodate urgent requests whenever possible. Urgent or out-of-hours bookings incur a <strong>flat surcharge of $20.00</strong> in addition to standard per-item charges. Turnaround times for urgent requests will be confirmed at the time of your inquiry.
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item border border-gray-200 rounded-xl mb-4 overflow-hidden">
                     <button class="faq-trigger w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-                        <span class="text-lg font-bold">How should I prepare my clothes?</span>
+                        <span class="text-lg font-bold">Do I need to provide my own hangers?</span>
                         <svg class="faq-icon w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div class="faq-content">
                         <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50">
-                            Garments must be <strong>clean and fully dry</strong>. We ask that you please ensure all pockets are emptied of coins, receipts, or sharp objects before drop-off.
+                            Yes. If you require your items to be returned on hangers, please provide them at drop-off. Otherwise, items will be returned neatly folded in protective packaging.
                         </div>
                     </div>
                 </div>
@@ -282,7 +284,7 @@
                     </button>
                     <div class="faq-content">
                         <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50">
-                            We accept payment via <strong>Cash or Card</strong> (a 1.6% surcharge applies to card payments). Payment must be settled at the time of collection.
+                            We accept payment via <strong>Cash or Card</strong> (a 1.6% surcharge applies to card payments). Payment must be settled at the time of collection. All major credit and debit cards, including Visa, Mastercard, American Express, Discover, JCB, UnionPay, and eftpos. 
                         </div>
                     </div>
                 </div>
@@ -305,18 +307,13 @@
     <script src="/footer.js"></script>
 
     <script>
-        // FAQ Accordion Logic (Keep local as it is page-specific)
+        // FAQ Accordion Logic
         const faqItems = document.querySelectorAll('.faq-item');
-        
         faqItems.forEach(item => {
             const trigger = item.querySelector('.faq-trigger');
             trigger.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
-                // Close all others
                 faqItems.forEach(i => i.classList.remove('active'));
-                
-                // Toggle current
                 if (!isActive) {
                     item.classList.add('active');
                 }

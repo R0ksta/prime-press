@@ -51,6 +51,11 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+
+        .filter-chip.active {
+            background-color: black !important;
+            color: white !important;
+        }
     </style>
 </head>
 <body class="bg-white text-black antialiased">
@@ -62,9 +67,17 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <header class="mb-12 text-center">
             <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 uppercase">Service Areas</h1>
-            <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-10">
-                Find your suburb or postcode below to see our local service details.
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-8">
+                Filter by distance or search for your suburb below.
             </p>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-6">
+                <button class="filter-chip px-6 py-2 bg-gray-100 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors" data-filter="10">0-4km: $10</button>
+                <button class="filter-chip px-6 py-2 bg-gray-100 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors" data-filter="15">4-8km: $15</button>
+                <button class="filter-chip px-6 py-2 bg-gray-100 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors" data-filter="20">8-12km: $20</button>
+                <button class="filter-chip px-6 py-2 bg-gray-100 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors" data-filter="25">12km+: $25+</button>
+                <button id="clearFilters" class="hidden px-6 py-2 border-2 border-black rounded-full text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">Clear All</button>
+            </div>
             
             <div class="max-w-md mx-auto relative mb-12">
                 <input type="text" id="areaSearch" placeholder="Search suburb or postcode (e.g. 3130)" 
@@ -74,245 +87,325 @@
         </header>
 
         <div id="suburbGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <a href="/service-areas/ashburton.html" data-postcode="3147" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+            
+            <a href="/service-areas/ashburton.html" data-postcode="3147" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ashburton</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3147</span>
+                    <span class="text-xs text-gray-400">3147</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
-            <a href="/service-areas/ashwood.html" data-postcode="3147" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/ashwood.html" data-postcode="3147" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ashwood</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3147</span>
+                    <span class="text-xs text-gray-400">3147</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/balwyn.html" data-postcode="3103" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/balwyn.html" data-postcode="3103" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Balwyn</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3103</span>
+                    <span class="text-xs text-gray-400">3103</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/balwyn-north.html" data-postcode="3103" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/balwyn-north.html" data-postcode="3103" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Balwyn North</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3103</span>
+                    <span class="text-xs text-gray-400">3103</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/bayswater.html" data-postcode="3153" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/bayswater.html" data-postcode="3153" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Bayswater</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3153</span>
+                    <span class="text-xs text-gray-400">3153</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
-            <a href="/service-areas/blackburn-north.html" data-postcode="3130" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/blackburn-north.html" data-postcode="3130" data-fee="10" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Blackburn North</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3130</span>
+                    <span class="text-xs text-gray-400">3130</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $10.00</div>
             </a>
-            <a href="/service-areas/blackburn-south.html" data-postcode="3130" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/blackburn-south.html" data-postcode="3130" data-fee="10" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Blackburn South</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3130</span>
+                    <span class="text-xs text-gray-400">3130</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $10.00</div>
             </a>
-            <a href="/service-areas/box-hill.html" data-postcode="3128" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/box-hill.html" data-postcode="3128" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Box Hill</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3128</span>
+                    <span class="text-xs text-gray-400">3128</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/box-hill-north.html" data-postcode="3128" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/box-hill-north.html" data-postcode="3128" data-fee="10" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Box Hill North</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3128</span>
+                    <span class="text-xs text-gray-400">3128</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $10.00</div>
             </a>
-            <a href="/service-areas/box-hill-south.html" data-postcode="3128" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/box-hill-south.html" data-postcode="3128" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Box Hill South</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3128</span>
+                    <span class="text-xs text-gray-400">3128</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/bulleen.html" data-postcode="3105" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/bulleen.html" data-postcode="3105" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Bulleen</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3105</span>
+                    <span class="text-xs text-gray-400">3105</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
-            <a href="/service-areas/burwood.html" data-postcode="3125" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/burwood.html" data-postcode="3125" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Burwood</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3125</span>
+                    <span class="text-xs text-gray-400">3125</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/burwood-east.html" data-postcode="3125" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/burwood-east.html" data-postcode="3125" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Burwood East</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3125</span>
+                    <span class="text-xs text-gray-400">3125</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/camberwell.html" data-postcode="3124" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/camberwell.html" data-postcode="3124" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Camberwell</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3124</span>
+                    <span class="text-xs text-gray-400">3124</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
-            <a href="/service-areas/canterbury.html" data-postcode="3126" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/canterbury.html" data-postcode="3126" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Canterbury</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3126</span>
+                    <span class="text-xs text-gray-400">3126</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/chadstone.html" data-postcode="3148" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/chadstone.html" data-postcode="3148" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Chadstone</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3148</span>
+                    <span class="text-xs text-gray-400">3148</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
-            <a href="/service-areas/doncaster.html" data-postcode="3108" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/doncaster.html" data-postcode="3108" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Doncaster</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3108</span>
+                    <span class="text-xs text-gray-400">3108</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/doncaster-east.html" data-postcode="3108" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/doncaster-east.html" data-postcode="3108" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Doncaster East</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3108</span>
+                    <span class="text-xs text-gray-400">3108</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/donvale.html" data-postcode="3111" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/donvale.html" data-postcode="3111" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Donvale</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3111</span>
+                    <span class="text-xs text-gray-400">3111</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/forest-hill.html" data-postcode="3131" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/forest-hill.html" data-postcode="3131" data-fee="10" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Forest Hill</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3131</span>
+                    <span class="text-xs text-gray-400">3131</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $10.00</div>
             </a>
-            <a href="/service-areas/glen-waverley.html" data-postcode="3150" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/glen-waverley.html" data-postcode="3150" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Glen Waverley</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3150</span>
+                    <span class="text-xs text-gray-400">3150</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/hawthorn-east.html" data-postcode="3123" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/hawthorn-east.html" data-postcode="3123" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Hawthorn East</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3123</span>
+                    <span class="text-xs text-gray-400">3123</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
-            <a href="/service-areas/heathmont.html" data-postcode="3135" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/heathmont.html" data-postcode="3135" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Heathmont</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3135</span>
+                    <span class="text-xs text-gray-400">3135</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/mitcham.html" data-postcode="3132" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/mitcham.html" data-postcode="3132" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Mitcham</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3132</span>
+                    <span class="text-xs text-gray-400">3132</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/mont-albert.html" data-postcode="3127" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/mont-albert.html" data-postcode="3127" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Mont Albert</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3127</span>
+                    <span class="text-xs text-gray-400">3127</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/mont-albert-north.html" data-postcode="3127" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/mont-albert-north.html" data-postcode="3127" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Mont Albert North</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3127</span>
+                    <span class="text-xs text-gray-400">3127</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/mount-waverley.html" data-postcode="3149" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/mount-waverley.html" data-postcode="3149" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Mount Waverley</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3149</span>
+                    <span class="text-xs text-gray-400">3149</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/nunawading.html" data-postcode="3131" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/nunawading.html" data-postcode="3131" data-fee="10" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Nunawading</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3131</span>
+                    <span class="text-xs text-gray-400">3131</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $10.00</div>
             </a>
-            <a href="/service-areas/ringwood.html" data-postcode="3134" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/ringwood.html" data-postcode="3134" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ringwood</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3134</span>
+                    <span class="text-xs text-gray-400">3134</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/ringwood-east.html" data-postcode="3134" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/ringwood-east.html" data-postcode="3134" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ringwood East</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3134</span>
+                    <span class="text-xs text-gray-400">3134</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/ringwood-north.html" data-postcode="3134" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/ringwood-north.html" data-postcode="3134" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Ringwood North</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3134</span>
+                    <span class="text-xs text-gray-400">3134</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
-            <a href="/service-areas/surrey-hills.html" data-postcode="3127" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/surrey-hills.html" data-postcode="3127" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Surrey Hills</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3127</span>
+                    <span class="text-xs text-gray-400">3127</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/syndal.html" data-postcode="3150" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/syndal.html" data-postcode="3150" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Syndal</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3150</span>
+                    <span class="text-xs text-gray-400">3150</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/templestowe.html" data-postcode="3106" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/templestowe.html" data-postcode="3106" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Templestowe</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3106</span>
+                    <span class="text-xs text-gray-400">3106</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
-            <a href="/service-areas/templestowe-lower.html" data-postcode="3106" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/templestowe-lower.html" data-postcode="3106" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Templestowe Lower</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3106</span>
+                    <span class="text-xs text-gray-400">3106</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/vermont.html" data-postcode="3133" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/vermont.html" data-postcode="3133" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Vermont</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3133</span>
+                    <span class="text-xs text-gray-400">3133</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/vermont-south.html" data-postcode="3133" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/vermont-south.html" data-postcode="3133" data-fee="15" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Vermont South</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3133</span>
+                    <span class="text-xs text-gray-400">3133</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $15.00</div>
             </a>
-            <a href="/service-areas/wantirna.html" data-postcode="3152" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/wantirna.html" data-postcode="3152" data-fee="20" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Wantirna</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3152</span>
+                    <span class="text-xs text-gray-400">3152</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $20.00</div>
             </a>
-            <a href="/service-areas/wantirna-south.html" data-postcode="3152" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/wantirna-south.html" data-postcode="3152" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Wantirna South</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3152</span>
+                    <span class="text-xs text-gray-400">3152</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
-            <a href="/service-areas/wheelers-hill.html" data-postcode="3150" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
-                <div class="flex justify-between items-center">
+
+            <a href="/service-areas/wheelers-hill.html" data-postcode="3150" data-fee="25" class="suburb-card block p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-black hover:bg-white group">
+                <div class="flex justify-between items-start mb-2">
                     <span class="font-bold text-gray-700 group-hover:text-black">Wheelers Hill</span>
-                    <span class="text-xs text-gray-400 group-hover:text-gray-600">3150</span>
+                    <span class="text-xs text-gray-400">3150</span>
                 </div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">Delivery Fee: $25.00</div>
             </a>
         </div>
     </main>
@@ -337,16 +430,24 @@
             const searchInput = document.getElementById('areaSearch');
             const suburbCards = document.querySelectorAll('.suburb-card');
             const searchStats = document.getElementById('searchStats');
+            const filterChips = document.querySelectorAll('.filter-chip');
+            const clearBtn = document.getElementById('clearFilters');
 
-            searchInput.addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase().trim();
+            let activeFee = null;
+
+            const updateDisplay = () => {
+                const query = searchInput.value.toLowerCase().trim();
                 let visibleCount = 0;
 
                 suburbCards.forEach(card => {
                     const suburbName = card.querySelector('span').textContent.toLowerCase();
                     const postcode = card.getAttribute('data-postcode');
+                    const fee = card.getAttribute('data-fee');
                     
-                    if (suburbName.includes(query) || postcode.includes(query)) {
+                    const matchesSearch = suburbName.includes(query) || postcode.includes(query);
+                    const matchesFilter = !activeFee || fee === activeFee;
+
+                    if (matchesSearch && matchesFilter) {
                         card.style.display = 'block';
                         visibleCount++;
                     } else {
@@ -354,11 +455,46 @@
                     }
                 });
 
-                if (query === "") {
+                // Show/Hide Clear Button
+                if (query !== "" || activeFee) {
+                    clearBtn.classList.remove('hidden');
+                } else {
+                    clearBtn.classList.add('hidden');
+                }
+
+                if (query === "" && !activeFee) {
                     searchStats.textContent = "";
                 } else {
                     searchStats.textContent = `Found ${visibleCount} area(s)`;
                 }
+            };
+
+            // Search Event
+            searchInput.addEventListener('input', updateDisplay);
+
+            // Filter Chip Events
+            filterChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const filterValue = chip.getAttribute('data-filter');
+                    
+                    if (activeFee === filterValue) {
+                        activeFee = null;
+                        chip.classList.remove('active');
+                    } else {
+                        filterChips.forEach(c => c.classList.remove('active'));
+                        activeFee = filterValue;
+                        chip.classList.add('active');
+                    }
+                    updateDisplay();
+                });
+            });
+
+            // Clear Button Event
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = "";
+                activeFee = null;
+                filterChips.forEach(c => c.classList.remove('active'));
+                updateDisplay();
             });
         });
     </script>
