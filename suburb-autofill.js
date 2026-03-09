@@ -12,7 +12,7 @@
         "box-hill-south": { pc: "3128", fee: "$15.00" },
         "bulleen": { pc: "3105", fee: "$25.00" },
         "burwood": { pc: "3125", fee: "$20.00" },
-        "burwood-east": { pc: "3125", fee: "$15.00" },
+        "burwood-east": { pc: "3151", fee: "$15.00" },
         "camberwell": { pc: "3124", fee: "$25.00" },
         "canterbury": { pc: "3126", fee: "$20.00" },
         "chadstone": { pc: "3148", fee: "$25.00" },
