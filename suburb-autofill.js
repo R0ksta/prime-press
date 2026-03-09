@@ -3,7 +3,7 @@
         "ashburton": { pc: "3147", fee: "$25.00" },
         "ashwood": { pc: "3147", fee: "$20.00" },
         "balwyn": { pc: "3103", fee: "$20.00" },
-        "balwyn-north": { pc: "3103", fee: "$20.00" },
+        "balwyn-north": { pc: "3104", fee: "$20.00" },
         "bayswater": { pc: "3153", fee: "$25.00" },
         "blackburn-north": { pc: "3130", fee: "$10.00" },
         "blackburn-south": { pc: "3130", fee: "$10.00" },
