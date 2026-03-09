@@ -457,29 +457,6 @@
     <script src="/footer.js"></script>
 
     <script>
-    const suburbData = {
-        "3130": { name: "Blackburn / Laburnum", fee: 10 },
-        "3128": { name: "Box Hill", fee: 15 },
-        "3129": { name: "Box Hill North", fee: 10 },
-        "3131": { name: "Forest Hill / Nunawading", fee: 10 },
-        "3125": { name: "Burwood / Burwood East", fee: 15 },
-        "3109": { name: "Doncaster East", fee: 15 },
-        "3132": { name: "Mitcham", fee: 15 },
-        "3127": { name: "Surrey Hills / Mont Albert", fee: 15 },
-        "3133": { name: "Vermont", fee: 15 },
-        "3111": { name: "Donvale", fee: 15 },
-        "3150": { name: "Glen Waverley / Syndal", fee: 20 },
-        "3103": { name: "Balwyn", fee: 20 },
-        "3104": { name: "Balwyn North", fee: 20 },
-        "3126": { name: "Canterbury", fee: 20 },
-        "3135": { name: "Heathmont", fee: 20 },
-        "3149": { name: "Mt Waverley", fee: 20 },
-        "3134": { name: "Ringwood", fee: 20 },
-        "3152": { name: "Wantirna", fee: 20 },
-        "3147": { name: "Ashwood / Ashburton", fee: 20 },
-        "3106": { name: "Templestowe", fee: 20 }
-    };
-
     const itemSelect = document.getElementById('item-select');
     const itemQty = document.getElementById('item-qty');
     const addItemBtn = document.getElementById('add-item-btn');
@@ -497,6 +474,20 @@
     let selectedItems = [];
     let deliveryFee = 0;
     let activeSuburb = "N/A";
+    let suburbData = {}; // Will be populated by fetch
+
+    // Initialize: Fetch the JSON data
+    async function loadSuburbData() {
+        try {
+            const response = await fetch('/suburbs.json');
+            if (!response.ok) throw new Error('Data load failed');
+            suburbData = await response.json();
+            console.log("Suburb data loaded successfully");
+        } catch (err) {
+            console.error("Calculator Error: Could not fetch suburbs.json", err);
+        }
+    }
+    loadSuburbData();
 
     document.querySelectorAll('input[name="service_type"]').forEach(radio => {
         radio.addEventListener('change', (e) => {
@@ -535,12 +526,17 @@
     });
 
     function checkPostcode(val) {
-        if(suburbData[val]) {
-            deliveryFee = suburbData[val].fee;
-            activeSuburb = suburbData[val].name;
-            suburbInfo.innerText = `Matched: ${activeSuburb} ($${deliveryFee} Fee)`;
+        // Look for the postcode in our fetched JSON object
+        const matchedEntry = Object.entries(suburbData).find(([key, data]) => data.pc === val);
+
+        if(matchedEntry) {
+            const [key, data] = matchedEntry;
+            deliveryFee = parseFloat(data.fee.replace('$', ''));
+            // Format name from slug (e.g. box-hill to Box Hill)
+            activeSuburb = key.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            suburbInfo.innerText = `${activeSuburb} ($${deliveryFee.toFixed(2)} Fee)`;
         } else if (val.length === 4) {
-            deliveryFee = 25;
+            deliveryFee = 25.00;
             activeSuburb = "Extended Area";
             suburbInfo.innerText = `Extended Area ($25.00 Fee)`;
         } else {
@@ -630,6 +626,6 @@
         submitBtn.disabled = true;
         document.getElementById('btn-text').innerHTML = '<span class="spinner"></span>Processing...';
     });
-    </script>
+</script>
 </body>
 </html>
