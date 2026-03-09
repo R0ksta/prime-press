@@ -17,7 +17,7 @@
         "canterbury": { pc: "3126", fee: "$20.00" },
         "chadstone": { pc: "3148", fee: "$25.00" },
         "doncaster": { pc: "3108", fee: "$20.00" },
-        "doncaster-east": { pc: "3108", fee: "$15.00" },
+        "doncaster-east": { pc: "3109", fee: "$15.00" },
         "donvale": { pc: "3111", fee: "$15.00" },
         "forest-hill": { pc: "3131", fee: "$10.00" },
         "glen-waverley": { pc: "3150", fee: "$20.00" },
