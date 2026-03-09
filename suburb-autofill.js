@@ -43,7 +43,7 @@
     };
 
     function initAutofill() {
-        const path = window.location.pathname.split("/").pop().replace(".html", "").toLowerCase();
+        const path = window.location.pathname.split("/").pop().replace("", "").toLowerCase();
         const data = suburbMap[path] || { pc: "3130", fee: "$0.00" };
         
         const displayName = path.split('-').map(word => 

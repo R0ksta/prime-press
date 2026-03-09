@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs md:text-sm">
                 <p class="text-center md:text-left">&copy; 2026 Prime Press. All Rights Reserved.</p>
                 <div class="flex flex-wrap justify-center gap-4 mt-4 md:mt-0 font-medium">
-                    <a href="/service-areas.html" class="hover:text-black transition-colors underline decoration-gray-200">Service Areas</a>
-                    <a href="/service-policy.html" class="hover:text-black transition-colors underline decoration-gray-200">Service Policy</a>
+                    <a href="/service-areas" class="hover:text-black transition-colors underline decoration-gray-200">Service Areas</a>
+                    <a href="/service-policy" class="hover:text-black transition-colors underline decoration-gray-200">Service Policy</a>
                 </div>
             </div>
         </div>
