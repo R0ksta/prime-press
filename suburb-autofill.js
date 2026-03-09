@@ -8,7 +8,7 @@
         "blackburn-north": { pc: "3130", fee: "$10.00" },
         "blackburn-south": { pc: "3130", fee: "$10.00" },
         "box-hill": { pc: "3128", fee: "$15.00" },
-        "box-hill-north": { pc: "3128", fee: "$10.00" },
+        "box-hill-north": { pc: "3129", fee: "$10.00" },
         "box-hill-south": { pc: "3128", fee: "$15.00" },
         "bulleen": { pc: "3105", fee: "$25.00" },
         "burwood": { pc: "3125", fee: "$20.00" },
